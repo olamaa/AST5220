@@ -174,7 +174,7 @@ double BackgroundCosmology::get_luminosity_distance_of_x(double x) const{
   //=============================================================================
   //...
   //...
-  
+
   return 0.0;
 }
 
