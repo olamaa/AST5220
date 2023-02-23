@@ -172,20 +172,24 @@ double BackgroundCosmology::get_luminosity_distance_of_x(double x) const{
   //=============================================================================
   // TODO: Implement...
   //=============================================================================
-  //...
-  //...
-
-  return 0.0;
+  if (OmegaK < 0.){
+  double r = get_comoving_distance_of_x(x)*sin(sqrt(-OmegaK)*H0*get_comoving_distance_of_x(x)/Constants.c) / (sqrt(-OmegaK)*H0*get_comoving_distance_of_x(x)/Constants.c)
+    return exp(-x)*r
+  }
+  else if (OmegaK == 0.){
+  return exp(-x)*get_comoving_distance_of_x(x)
+  }
+  else if (OmegaK > 0.){
+  double r = get_comoving_distance_of_x(x)*sinh(sqrt(-OmegaK)*H0*get_comoving_distance_of_x(x)/Constants.c) / (sqrt(-OmegaK)*H0*get_comoving_distance_of_x(x)/Constants.c)
+  return exp(-x)*r;
+  }
 }
 
 double BackgroundCosmology::get_comoving_distance_of_x(double x) const{
   //=============================================================================
   // TODO: Implement...
   //=============================================================================
-  //...
-  //...
-
-  return 0.0;
+  return eta_of_x(0) - eta_of_x(x);
 }
 
 double BackgroundCosmology::eta_of_x(double x) const{
