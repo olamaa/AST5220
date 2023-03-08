@@ -94,8 +94,7 @@ double BackgroundCosmology::H_of_x(double x) const{
   // TODO: Implement... // DONE
   //=============================================================================
   double exponentials = (OmegaB+OmegaCDM)*pow(exp(x), -3) + (OmegaR + OmegaNu)*pow(exp(x), -4) + OmegaK*pow(exp(x), -2) + OmegaLambda;
-  double H = H0*sqrt(exponentials);
-  return H;
+  return H0*sqrt(exponentials);
 }
 
 double BackgroundCosmology::Hp_of_x(double x) const{
@@ -103,8 +102,7 @@ double BackgroundCosmology::Hp_of_x(double x) const{
   //=============================================================================
   // TODO: Implement... // DONE
   //=============================================================================
-  double Hp = exp(x)*H_of_x(x);
-  return Hp;
+  return exp(x)*H_of_x(x);
 }
 
 double BackgroundCosmology::dHpdx_of_x(double x) const{
@@ -113,11 +111,9 @@ double BackgroundCosmology::dHpdx_of_x(double x) const{
   // TODO: Implement... // DONE
   //=============================================================================
 
-  // YOU NEED TO FIX THIS 
-
   double exponential = (OmegaB+OmegaCDM)*pow(exp(x),-1)+ (OmegaR+OmegaNu)*pow(exp(x),-2)+OmegaK+OmegaLambda*pow(exp(x),2);
   double d_exponential = -(OmegaB+OmegaCDM)*pow(exp(x),-1) -2.* (OmegaR+OmegaNu)*pow(exp(x),-2.)+2.*OmegaLambda*pow(exp(x),2);
-  return H0*1./2.*exponential*d_exponential;
+  return H0*1./2.*pow(exponential,-1./2.)*d_exponential;
 }
 
 double BackgroundCosmology::ddHpddx_of_x(double x) const{
@@ -125,14 +121,12 @@ double BackgroundCosmology::ddHpddx_of_x(double x) const{
   //=============================================================================
   // TODO: Implement... // DONE
   //=============================================================================
-
-  // YOU NEED TO FIX THIS 
   
   double exponential = (OmegaB+OmegaCDM)*pow(exp(x),-1.) + (OmegaR+OmegaNu)*pow(exp(x),-2.)+OmegaK + OmegaLambda*pow(exp(x),2.);
   double d_exponential = -(OmegaB+OmegaCDM)*pow(exp(x),-1.) - 2.* (OmegaR+OmegaNu)*pow(exp(x),-2.) + 2.*OmegaLambda*pow(exp(x),2.);
   double dd_exponential = (OmegaB+OmegaCDM)*pow(exp(x),-1.) + 4.* (OmegaR+OmegaNu)*pow(exp(x),-2.) + 4.*OmegaLambda*pow(exp(x),2.);
 
-  return H0*1./2.*(d_exponential*d_exponential+exponential*dd_exponential);
+  return H0*(-1./4.*pow(exponential, -3./2.)*d_exponential + 1./2.*pow(exponential, -1./2.)*dd_exponential);
 }
 
 double BackgroundCosmology::get_OmegaB(double x) const{ 
