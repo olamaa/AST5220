@@ -19,7 +19,7 @@ void RecombinationHistory::solve(){
     
   // Compute and spline Xe, ne
   solve_number_density_electrons();
-   
+
   // Compute and spline tau, dtaudx, ddtauddx, g, dgdx, ddgddx, ...
   solve_for_optical_depth_tau();
 }
