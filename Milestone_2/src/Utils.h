@@ -50,6 +50,8 @@ extern struct ConstantsAndUnits {
   // Min and max x-value
   const double x_start = -20;
   const double x_end   = 5;
+  const double x_very_very_early = -100.;
+  const double x_decoupling = -6.98539707941588;
 
   // Include polarization and/or neutrinos?
   const bool polarization  = true;

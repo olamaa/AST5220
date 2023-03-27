@@ -16,11 +16,13 @@ class RecombinationHistory{
     BackgroundCosmology *cosmo = nullptr;
     
     // Helium fraction
-    double Yp;
+    double Yp = 0;
  
     // The start and end points for recombination arrays (can be modified)
     const double x_start  = Constants.x_start;
     const double x_end    = Constants.x_end;
+    const double x_very_very_early = Constants.x_very_very_early;
+    const double x_decoupling = Constants.x_decoupling;
     
     // Numbers of points of Xe,ne array (modify as you see fit)
     const int npts_rec_arrays = 4000;
@@ -47,11 +49,15 @@ class RecombinationHistory{
 
     // The two things we need to solve: Xe/ne and tau
     void solve_for_optical_depth_tau();
+    double g_tilde(double x) const;
+    void sound_horizon();
 
     // Splines contained in this class
-    Spline log_Xe_of_x_spline{"Xe"};
+    Spline Xe_of_x_spline{"Xe"};
+    Spline log_ne_of_x_spline{"ne"};
     Spline tau_of_x_spline{"tau"}; 
-    Spline g_tilde_of_x_spline{"g"};  
+    Spline g_tilde_of_x_spline{"g"}; 
+    Spline sound_horizon_spline{"SH"}; 
 
   public:
 
@@ -80,6 +86,7 @@ class RecombinationHistory{
     double Xe_of_x(double x) const;
     double ne_of_x(double x) const;
     double get_Yp() const;
+    double get_sound_horizon() const;
 };
 
 #endif
