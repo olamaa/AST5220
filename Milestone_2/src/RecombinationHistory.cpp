@@ -233,7 +233,7 @@ void RecombinationHistory::solve_for_optical_depth_tau(){
   Utils::StartTiming("opticaldepth");
 
   // Set up x-arrays to integrate over. We split into three regions as we need extra points in reionisation
-  const int npts = 10000;
+  const int npts = 4000;
   Vector x_array = Utils::linspace(x_start, x_end, npts);
   Vector x_array_r = Utils::linspace(x_end, x_start, npts);
 
@@ -258,10 +258,8 @@ void RecombinationHistory::solve_for_optical_depth_tau(){
   Vector tau_init = {0.0};
   tau_of_x_ode.solve(dtaudx,x_array_r,tau_init);
   auto tau_of_x_solution = tau_of_x_ode.get_data_by_component(0);
-
   Vector tau_of_x_linspace = Utils::linspace(0.,1.,npts);
-
-  for (int i =0;i<npts;i++){
+  for (int i=0;i<npts;i++){
     tau_of_x_linspace[i] = tau_of_x_solution[npts-1-i];
   }
   tau_of_x_spline.create(x_array,tau_of_x_linspace,"tau");
@@ -278,26 +276,29 @@ void RecombinationHistory::solve_for_optical_depth_tau(){
   g_tilde_of_x_spline.create(x_array,g_tilde_linspace,"g");
   Utils::EndTiming("opticaldepth");
 }
+double RecombinationHistory::g_tilde(double x) const{
+  return -dtaudx_of_x(x)*exp(-tau_of_x(x));
+}
+
 
 void RecombinationHistory::sound_horizon(){
-  Vector x_array = Utils::linspace(x_very_very_early, x_end, 2*npts_rec_arrays);
+  Vector x_array = Utils::linspace(x_very_very_early, x_end, npts_rec_arrays);
   const double c = Constants.c;
   const double sigma_T = Constants.sigma_T;
   const double OmegaR0 = cosmo->get_OmegaR(0.0);
   const double OmegaB0 = cosmo->get_OmegaB(0.0);
+
   ODEFunction dsdx = [&](double x, const double *s, double *dsdx){
     const double a = exp(x);
     const double Hp = cosmo->Hp_of_x(x);
-    double R = 4.*OmegaR0/(3.*OmegaB0*a);
-    double cs = c*sqrt(R/(3.*(1. + R)));
-
+    const double R = 4.*OmegaR0/(3.*OmegaB0*a);
+    const double cs = c*sqrt(R/(3.*(1. + R)));
     dsdx[0] = cs/Hp;
-
     return GSL_SUCCESS;
   };
-  double R_initial = 4.*OmegaR0/(3*OmegaB0*exp(x_start));
-  double cs_initial = c*sqrt(R_initial/(3.*(1. + R_initial)));
-  double Hp_initial = cosmo->Hp_of_x(x_start);
+  const double R_initial = 4.*OmegaR0/(3*OmegaB0*exp(x_start));
+  const double cs_initial = c*sqrt(R_initial/(3.*(1. + R_initial)));
+  const double Hp_initial = cosmo->Hp_of_x(x_start);
 
   ODESolver sound_horizon_ODE;
   Vector sound_horizon_initial = {cs_initial/Hp_initial};
@@ -388,6 +389,7 @@ void RecombinationHistory::info() const{
   std::cout << "\n";
   std::cout << "Info about recombination/reionization history class:\n";
   std::cout << "Yp:                              " << Yp                                                         << "\n";
+  //std::cout << "ex:                              " << get_sound_horizon()                                                         << "\n";
   std::cout << "Sound Horizon [Gpc]:             " << get_sound_horizon()/(Constants.Mpc*1e3)                    << "\n";
   std::cout << "Sound Horizon: conformal ratio:  " << get_sound_horizon()/cosmo->eta_of_x(x_decoupling)          << "\n";
   std::cout << std::endl;
