@@ -9,6 +9,7 @@
 #include "Utils.h"
 #include "BackgroundCosmology.h"
 #include "RecombinationHistory.h"
+#include "armadillo"
 
 using Vector   = std::vector<double>;
 using Vector2D = std::vector<Vector>;
@@ -27,7 +28,31 @@ class Perturbations{
     // Start and end of the time-integration
     const int n_x        = 1000;
     const double x_start = Constants.x_start;
-    const double x_end   = Constants.x_end;
+    const double x_end   = Constants.x_today;
+    //const double x_today = Constants.x_today;
+    Vector x_array = Utils::linspace(x_start,x_end,n_x);
+    
+    
+    Vector delta_cdm_vector;
+    Vector v_cdm_vector;
+    Vector delta_b_vector;
+    Vector v_b_vector;
+    Vector Psi_vector;
+    Vector Phi_vector;
+    Vector Theta0_vector;
+    Vector Theta1_vector;
+    Vector Theta2_vector;
+    Vector Theta3_vector;
+    Vector Theta4_vector;
+    Vector Theta5_vector;
+    Vector Theta6_vector;
+    Vector Theta7_vector;
+    
+
+
+    //std::vector<Vector> Psi_vector_complete;
+    
+
 
     // Below is a full list of splines you probably need, 
     // but you only need to make the splines you will need
@@ -49,8 +74,8 @@ class Perturbations{
     // NB: If you use there you have to allocate the container first
     // e.g. Theta_spline = std::vector<Spline2D>(n_ell_theta); before using it
     std::vector<Spline2D> Theta_spline;
-    std::vector<Spline2D> Theta_p_spline;
-    std::vector<Spline2D> Nu_spline;
+    //std::vector<Spline2D> Theta_p_spline;
+    //std::vector<Spline2D> Nu_spline;
     
     //==========================================================
     // [1] Tight coupling ODE system
@@ -65,7 +90,7 @@ class Perturbations{
     int rhs_tight_coupling_ode(double x, double k, const double *y, double *dydx);
     
     // Compute the time when tight coupling ends
-    double get_tight_coupling_time(const double k) const;
+    double get_tight_coupling_time(const double k);
     
     //==========================================================
     // [2] The full ODE system 
@@ -120,8 +145,6 @@ class Perturbations{
     double get_Psi(const double x, const double k) const;
     double get_Pi(const double x, const double k) const;
     double get_Theta(const double x, const double k, const int ell) const;
-    double get_Theta_p(const double x, const double k, const int ell) const;
-    double get_Nu(const double x, const double k, const int ell) const;
     double get_Source_T(const double x, const double k) const;
     double get_Source_E(const double x, const double k) const;
 };
