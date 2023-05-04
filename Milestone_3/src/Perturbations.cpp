@@ -187,8 +187,8 @@ void Perturbations::integrate_perturbations(){
         after_tc_data[0] = tight_coupling_data.back();                        // HERE ERROR HERE HIHI
     
 
-        std::cout << after_tc_data[0] << std::endl;
-        std::cout << after_tc_data.size() << std::endl;
+        //std::cout << after_tc_data << std::endl;
+        //std::cout << after_tc_data.size() << std::endl;
 
       }
       else{
