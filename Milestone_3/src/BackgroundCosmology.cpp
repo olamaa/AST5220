@@ -199,6 +199,8 @@ double BackgroundCosmology::get_luminosity_distance_of_x(double x) const{
   double r = get_comoving_distance_of_x(x)*sinh(sqrt(OmegaK)*H0*get_comoving_distance_of_x(x)/Constants.c) / (sqrt(OmegaK)*H0*get_comoving_distance_of_x(x)/Constants.c);
   return exp(-x)*r;
   }
+  std::cout << "Wrong answer" << std::endl;
+  return 0;
 }
 
 double BackgroundCosmology::get_comoving_distance_of_x(double x) const{

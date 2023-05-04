@@ -7,7 +7,7 @@ CC = g++ -std=c++11
 
 # Paths to GSL library
 INC = -I$(HOME)/local/include
-LIBS = -L$(HOME)/local/lib -lgsl -lgslcblas
+LIBS = -L$(HOME)/local/lib -lgsl -lgslcblas -larmadillo # (Ola) added -larmadillo manually
 
 #=======================================================
 # Options

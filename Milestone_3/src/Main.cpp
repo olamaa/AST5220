@@ -70,9 +70,13 @@ int main(int argc, char **argv){
   //=========================================================================
  
   // Solve the perturbations
+  //std::cout << "line 73" << std::endl;
   Perturbations pert(&cosmo, &rec);
+  //std::cout << "line 75" << std::endl;
   pert.solve();
+  //std::cout << "line 77" << std::endl;
   pert.info();
+  //std::cout << "line 79" << std::endl;
   
   // Output perturbation quantities
   double kvalue0 = 0.001 / Constants.Mpc;
