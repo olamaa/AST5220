@@ -5,9 +5,9 @@
 //====================================================
 
 Perturbations::Perturbations(
-    BackgroundCosmology *cosmo,  
+    BackgroundCosmology *cosmo, 
     RecombinationHistory *rec) : 
-  cosmo(cosmo),  
+  cosmo(cosmo), 
   rec(rec)
 {}
 
@@ -37,22 +37,23 @@ void Perturbations::integrate_perturbations(){
   // Start at k_min end at k_max with n_k points with either a
   // quadratic or a logarithmic spacing
   //===================================================================
-  arma::vec k_array_arma = arma::logspace(log10(k_min),  log10(k_max),  n_k);
+  auto k_array_arma = Utils::linspace(log10(k_min), log10(k_max), n_k);
   Vector k_array;
   for (int i=0;i<k_array_arma.size();i++){
-      k_array.push_back(k_array_arma[i]);
+    k_array.push_back(std::pow(10.0,k_array_arma[i]));
   }
-  //std::cout << "Line 45" << std::endl;
-  // Loop over all wavenumbers
+  std::cout << "Line 45" << std::endl;
 
+  std::cout << "Looping over k-values from k_min = " << k_array.front() << " k_max = " << k_array.back() << " nk = " << k_array.size() << "\n";
+  // Loop over all wavenumbers
   for(int ik = 0; ik < n_k; ik++){
 
     // Progress bar...
     if( (10*ik) / n_k != (10*ik+10) / n_k ) {
       std::cout << (100*ik+100)/n_k << "% " << std::flush;
-    if(ik == n_k-1) std::cout << std::endl;
+      if(ik == n_k-1) std::cout << std::endl;
     }
-  std::cout << "Progress bar worked" << std::endl;
+    std::cout << "Progress bar worked" << std::endl;
 
     // Current value of k
     double k = k_array[ik];
@@ -78,66 +79,83 @@ void Perturbations::integrate_perturbations(){
       else{}
     }
 
-    //std::cout << "Line 81" << std::endl;
+    std::cout << "Line 81" << std::endl;
+    std::cout << "Tight coupling: \n";
+    std::cout << " k = " << k * Constants.Mpc << "\n";
+    std::cout << " x_start = " << x_array[0] << "\n";
+    std::cout << " x_end_tight = " << x_end_tight << "\n";
+    std::cout << " tight_index = " << tight_index <<  " x_array.size() = " <<  x_array.size() << "\n";
+
 
     Vector tight_coupling_x_array;
     tight_coupling_x_array.clear();
     for (int i=0;i<tight_index;i++){
-        tight_coupling_x_array.push_back(x_array[i]);
+      tight_coupling_x_array.push_back(x_array[i]);
     }
+    std::cout << "Making x_tight_coupling x-array: x_min = " << tight_coupling_x_array.front() << " x_max = " << tight_coupling_x_array.back() << " nx = " << tight_coupling_x_array.size() << "\n";
 
-    //std::cout << "Line 89" << std::endl;
+    std::cout << "Line 89" << std::endl;
 
     Vector from_and_after_tc_x_array;
     from_and_after_tc_x_array.clear();
 
-    //std::cout << "Line 94" << std::endl;
+    std::cout << "Line 94" << std::endl;
 
     for (int i=0;i < n_x-tight_index+1;i++){
       // Remove last element to avoid overlapping
-
-      //std::cout << "Line 99" << std::endl;
-
       from_and_after_tc_x_array.push_back(x_array[tight_index-1+i]);
+    }
+    std::cout << "Making x-array after tight coupling x_min = " << from_and_after_tc_x_array.front() << " x_max = " << from_and_after_tc_x_array.back() << " nx = " << from_and_after_tc_x_array.size() << "\n";
 
-      //std::cout << "Line 103" << std::endl;
+    std::cout << "Line 103" << std::endl;
 
     // Set up initial conditions in the tight coupling regime
-    auto y_tight_coupling_ini = set_ic(x_start,  k);                       
+    auto y_tight_coupling_ini = set_ic(x_start, k);                       
 
-    //std::cout << "Line 108" << std::endl;
+    std::cout << "Line 108" << std::endl;
 
     // DONE: The tight coupling ODE system
-    ODEFunction dydx_tight_coupling = [&](double x,  const double *y,  double *dydx){
-      return rhs_tight_coupling_ode(x,  k,  y,  dydx);
+    ODEFunction dydx_tight_coupling = [&](double x, const double *y, double *dydx){
+      return rhs_tight_coupling_ode(x, k, y, dydx);
     };
-    //std::cout << "Line 114" << std::endl;
+    std::cout << "Line 114" << std::endl;
 
     // DONE: Integrate from x_start -> x_end_tight
     ODESolver tight_coupling_ODE;
     std::vector<Vector> tight_coupling_data;
     //Vector tight_coupling_data;
 
-    //std::cout << "Line 121" << std::endl;
+    std::cout << "Line 121" << std::endl;
 
-    if (tight_coupling_x_array.size() >= 2){
-        tight_coupling_ODE.solve(dydx_tight_coupling, tight_coupling_x_array, y_tight_coupling_ini);
-        tight_coupling_data = tight_coupling_ODE.get_data();
-    }
-    else{
-      tight_coupling_data.push_back(y_tight_coupling_ini);
-    }
+    std::cout << "Solving tight coupling ODE from x_min = " << tight_coupling_x_array.front() << " x_max = " << tight_coupling_x_array.back() << "\n";
+    for(auto y : y_tight_coupling_ini)
+      std::cout << "IC y_tc[.] = " << y << "\n";
+    tight_coupling_ODE.solve(dydx_tight_coupling,tight_coupling_x_array,y_tight_coupling_ini);
+    tight_coupling_data = tight_coupling_ODE.get_data();
 
-    //std::cout << "Line 131" << std::endl;
+    /*
+       if (tight_coupling_x_array.size() >= 2){
+       tight_coupling_ODE.solve(dydx_tight_coupling,tight_coupling_x_array,y_tight_coupling_ini);
+       tight_coupling_data = tight_coupling_ODE.get_data();
+       }
+       else{
+       tight_coupling_data.push_back(y_tight_coupling_ini);
+       }
+     */
+
+    std::cout << "Line 131" << std::endl;
 
     // We only use 7 parameters in tight coupling
     Vector y_tight_coupling_end(7);
-    for (int i=0; i < y_tight_coupling_end.size(); i++){
+    for (int i=0;i < 7;i++){
       y_tight_coupling_end[i] = tight_coupling_data.back()[i];
     }
-    //std::cout << "Line 138" << std::endl;
+    std::cout << "Line 138" << std::endl;
+    std::cout << "Extracting the final solution after tight coupling:\n";
+    for(auto y : y_tight_coupling_end)
+      std::cout << "Final y_tc[.] = " << y << "\n";
 
-    //====i===============================================================
+    //===================================================================
     // DONE: Full equation integration
     // Remember to implement the routines:
     // set_ic_after_tight_coupling : The IC after tight coupling ends
@@ -145,190 +163,187 @@ void Perturbations::integrate_perturbations(){
     //===================================================================
 
     // Set up initial conditions (y_tight_coupling is the solution at the end of tight coupling)
-     auto y_full_ini = set_ic_after_tight_coupling(y_tight_coupling_end,  x_end_tight,  k);
+    auto y_full_ini = set_ic_after_tight_coupling(y_tight_coupling_end, x_end_tight, k);
 
-    //std::cout << "Line 150" << std::endl;
+    std::cout << "Line 150" << std::endl;
 
     // The full ODE system
-    ODEFunction dydx_full = [&](double x,  const double *y,  double *dydx){
-      return rhs_full_ode(x,  k,  y,  dydx);
+    ODEFunction dydx_full = [&](double x, const double *y, double *dydx){
+      return rhs_full_ode(x, k, y, dydx);
     };
 
-    //std::cout << "Line 157" << std::endl;
+    std::cout << "Line 157" << std::endl;
 
     ODESolver full_ODE;
     std::vector<Vector> after_tc_data;
 
-    //std::cout << "Line 162" << std::endl;
+    std::cout << "Line 162" << std::endl;
 
-    if (from_and_after_tc_x_array.size() >= 2){
-      full_ODE.solve(dydx_full, from_and_after_tc_x_array, y_full_ini);
-      after_tc_data = full_ODE.get_data();
+    std::cout << "Solving after tight coupling from x_min = " << from_and_after_tc_x_array.front() << " x_max = " << from_and_after_tc_x_array.back() << "\n"; 
+    for(auto y : y_full_ini)
+      std::cout << "IC y_full[.] = " << y << "\n";
+    full_ODE.solve(dydx_full,from_and_after_tc_x_array,y_full_ini);
+    after_tc_data = full_ODE.get_data();
 
-      //std::cout << "Line 167" << std::endl;
+    for(auto y : after_tc_data.back())
+      std::cout << "Final y_full[.] = " << y << "\n";
+
+    /*
+       if (from_and_after_tc_x_array.size() >= 2){
+       full_ODE.solve(dydx_full,from_and_after_tc_x_array,y_full_ini);
+       after_tc_data = full_ODE.get_data();
+
+       std::cout << "Line 167" << std::endl;
+
+       }
+       else{
+
+       std::cout << "Line 173" << std::endl;
+
+       if (from_and_after_tc_x_array.size() == 1){
+
+       std::cout << "Line 177" << std::endl;
+    //std::cout << tight_coupling_data.back() << std::endl;
+
+    after_tc_data[0] = tight_coupling_data.back();                                                  // HERE ERROR IS HERE !!!!
+
+    std::cout << "Line 181" << std::endl;
 
     }
     else{
 
-      //std::cout << "Line 173" << std::endl;
-
-      if (from_and_after_tc_x_array.size() == 1){
-
-        //std::cout << "Line 177" << std::endl;
-        //std::cout << tight_coupling_data.back() << std::endl;
-
-        //after_tc_data[0] = {0.};
-
-        //after_tc_data[0] = tight_coupling_data.back();                                                  // HERE ERROR IS HERE !!!!
-
-        std::cout << tight_coupling_data.back().size() << std::endl;
-
-        
-        after_tc_data.push_back(tight_coupling_data.back());                    // HERE ERROR HERE HIHI
-    
-
-        //std::cout << after_tc_data << std::endl;
-        //std::cout << after_tc_data.size() << std::endl;
-
-      }
-      else{
-
-        //std::cout << "Line 186" << std::endl;
-
-      }
-
-    //std::cout << "Line 189" << std::endl;
+    std::cout << "Line 186" << std::endl;
 
     }
 
-    std::cout << after_tc_data.size() << " " << std::endl;
-    //std::cout << "Line 191" << std::endl;
+    std::cout << "Line 189" << std::endl;
 
+    }
+     */
+
+    std::cout << "Line 191" << std::endl;
+
+    std::cout << "We now need to store the data and then continue the loop and do the next k-value\n";
+    std::cout << "tight_coupling_data has n = " << tight_coupling_data.size() << " elements\n";
+    std::cout << " x_min = " << tight_coupling_x_array.front() << " x_max = " << tight_coupling_x_array.back() << "\n"; 
+    std::cout << "after_tc_data has n = " << after_tc_data.size() << " elements\n";
+    std::cout << " x_min = " << from_and_after_tc_x_array.front() << " x_max = " << from_and_after_tc_x_array.front() << "\n"; 
+
+    // XXX This I guess is to remove the duplicated point which looks ok XXX
     tight_coupling_data.pop_back();
 
-    //std::cout << "Line 195" << std::endl;
-
+    std::cout << "Line 195" << std::endl;
 
     // DONE: Integrate from x_end_tight -> x_end
     for (int i = 0; i < tight_coupling_data.size() + after_tc_data.size(); i++){
-        if (i<tight_coupling_data.size()){
-          delta_cdm_vector.push_back(tight_coupling_data[i][0]);
-          v_cdm_vector.push_back(tight_coupling_data[i][1]);
-          delta_b_vector.push_back(tight_coupling_data[i][2]);
-          v_b_vector.push_back(tight_coupling_data[i][3]);
-          Phi_vector.push_back(tight_coupling_data[i][4]);
-          
-          Theta0_vector.push_back(tight_coupling_data[i][5]);
-          Theta1_vector.push_back(tight_coupling_data[i][6]);
-          //std::cout<< i << std::endl;
-          
-          //Higher order thetas are zero during tight coupling (approx)
-          Theta2_vector.push_back(0.);
-          Theta3_vector.push_back(0.);
-          Theta4_vector.push_back(0.);
-          Theta5_vector.push_back(0.);
-          Theta6_vector.push_back(0.);
-          Theta7_vector.push_back(0.);
-        }
-        else{
-          delta_cdm_vector.push_back(after_tc_data[i-tight_coupling_data.size()][0]);
-          v_cdm_vector.push_back(after_tc_data[i-tight_coupling_data.size()][1]);
-          delta_b_vector.push_back(after_tc_data[i-tight_coupling_data.size()][2]);
-          v_b_vector.push_back(after_tc_data[i-tight_coupling_data.size()][3]);
-          Phi_vector.push_back(after_tc_data[i-tight_coupling_data.size()][4]);
+      if (i<tight_coupling_data.size()){
+        delta_cdm_vector.push_back(tight_coupling_data[i][0]);
+        v_cdm_vector.push_back(tight_coupling_data[i][1]);
+        delta_b_vector.push_back(tight_coupling_data[i][2]);
+        v_b_vector.push_back(tight_coupling_data[i][3]);
+        Phi_vector.push_back(tight_coupling_data[i][4]);
 
-          Theta0_vector.push_back(after_tc_data[i-tight_coupling_data.size()][5]);
-          Theta1_vector.push_back(after_tc_data[i-tight_coupling_data.size()][6]);
+        Theta0_vector.push_back(tight_coupling_data[i][5]);
+        Theta1_vector.push_back(tight_coupling_data[i][6]);
+        //std::cout<< i << std::endl;
 
-          Theta2_vector.push_back(after_tc_data[i-tight_coupling_data.size()][7]);
-          Theta3_vector.push_back(after_tc_data[i-tight_coupling_data.size()][8]);
-          Theta4_vector.push_back(after_tc_data[i-tight_coupling_data.size()][9]);
-          Theta5_vector.push_back(after_tc_data[i-tight_coupling_data.size()][10]);
-          Theta6_vector.push_back(after_tc_data[i-tight_coupling_data.size()][11]);
-          Theta7_vector.push_back(after_tc_data[i-tight_coupling_data.size()][12]);
-        }
-        ////std::cout << "Line 245" << std::endl;
+        //Higher order thetas are zero during tight coupling (approx)
+        Theta2_vector.push_back(0.);
+        Theta3_vector.push_back(0.);
+        Theta4_vector.push_back(0.);
+        Theta5_vector.push_back(0.);
+        Theta6_vector.push_back(0.);
+        Theta7_vector.push_back(0.);
+      }
+      else{
+        delta_cdm_vector.push_back(after_tc_data[i-tight_coupling_data.size()][0]);
+        v_cdm_vector.push_back(after_tc_data[i-tight_coupling_data.size()][1]);
+        delta_b_vector.push_back(after_tc_data[i-tight_coupling_data.size()][2]);
+        v_b_vector.push_back(after_tc_data[i-tight_coupling_data.size()][3]);
+        Phi_vector.push_back(after_tc_data[i-tight_coupling_data.size()][4]);
+
+        Theta0_vector.push_back(after_tc_data[i-tight_coupling_data.size()][5]);
+        Theta1_vector.push_back(after_tc_data[i-tight_coupling_data.size()][6]);
+
+        Theta2_vector.push_back(after_tc_data[i-tight_coupling_data.size()][7]);
+        Theta3_vector.push_back(after_tc_data[i-tight_coupling_data.size()][8]);
+        Theta4_vector.push_back(after_tc_data[i-tight_coupling_data.size()][9]);
+        Theta5_vector.push_back(after_tc_data[i-tight_coupling_data.size()][10]);
+        Theta6_vector.push_back(after_tc_data[i-tight_coupling_data.size()][11]);
+        Theta7_vector.push_back(after_tc_data[i-tight_coupling_data.size()][12]);
+      }
+
     }
 
     // Storing Psi
-    
+
     // Using the initial condition
     Psi_vector.push_back(-2./3.);
     const double OmegaR0 = cosmo->get_OmegaR(0.);
     const double Omegab0 = cosmo->get_OmegaB(0.);
     const double OmegaCDM0 = cosmo->get_OmegaCDM(0.);
     const double H0 = cosmo->get_H0();
-    ////std::cout << "Line 256" << std::endl;
+
     for (int i = 1; i < x_array.size(); i++){
       double a = exp(x_array[i]);
       Psi_vector.push_back(-Phi_vector[i+n_x * ik]-12.*H0*H0/(Constants.c*Constants.c*k*k*a*a)*OmegaR0*Theta2_vector[i + n_x*ik]);
     }
-    ////std::cout << "Line 261" << std::endl;
 
-
-
-    //===================================================================
-    // DONE: remember to store the data found from integrating so we can
-    // spline it below
-    //
-    // To compute a 2D spline of a function f(x, k) the data must be given 
-    // to the spline routine as a 1D array f_array with the points f(ix,  ik) 
-    // stored as f_array[ix + n_x * ik]
-    // Example:
-    // Vector x_array(n_x);
-    // Vector k_array(n_k);
-    // Vector f(n_x * n_k);
-    // Spline2D y_spline;
-    // f_spline.create(x_array,  k_array,  f_array);
-    // We can now use the spline as f_spline(x,  k)
-    //
-    // NB: If you use Theta_spline then you have to allocate it first, 
-    // before using it e.g.
-    // Theta_spline = std::vector<Spline2D>(n_ell_theta);
-    //
-    //===================================================================
-
-
+    // This is the end of the for-loop
   }
+
+
+
+  //===================================================================
+  // DONE: remember to store the data found from integrating so we can
+  // spline it below
+  //
+  // To compute a 2D spline of a function f(x,k) the data must be given 
+  // to the spline routine as a 1D array f_array with the points f(ix, ik) 
+  // stored as f_array[ix + n_x * ik]
+  // Example:
+  // Vector x_array(n_x);
+  // Vector k_array(n_k);
+  // Vector f(n_x * n_k);
+  // Spline2D y_spline;
+  // f_spline.create(x_array, k_array, f_array);
+  // We can now use the spline as f_spline(x, k)
+  //
+  // NB: If you use Theta_spline then you have to allocate it first,
+  // before using it e.g.
+  // Theta_spline = std::vector<Spline2D>(n_ell_theta);
+  //
+  //===================================================================
+
+
   Utils::EndTiming("integrateperturbation");
 
   //=============================================================================
-  // DONE: Make all splines needed: Theta0, Theta1, Theta2, Phi, Psi, ...
+  // DONE: Make all splines needed: Theta0,Theta1,Theta2,Phi,Psi,...
   //=============================================================================
-  //std::cout << "Line 293" << std::endl;
-  std::cout << x_array.size() << " " << k_array.size() << " " << delta_cdm_vector.size() << std::endl;
-
-  delta_cdm_spline.create(x_array,  k_array,  delta_cdm_vector, "delta_cdm_spline");
-
-  //std::cout << "Line 298" << std::endl;
-
-  delta_b_spline.create(x_array, k_array,  delta_b_vector, "delta_b_spline");
-  v_cdm_spline.create(x_array, k_array, v_cdm_vector, "v_cdm_spline");
-  v_b_spline.create(x_array, k_array, v_b_vector, "v_b_spline");
-  Phi_spline.create(x_array, k_array, Phi_vector, "Phi_spline");
-  Psi_spline.create(x_array, k_array, Psi_vector, "Psi_spline");
-
-  //std::cout << "Line 302" << std::endl;
+  delta_cdm_spline.create(x_array,k_array,delta_cdm_vector,"delta_cdm_spline");
+  delta_b_spline.create(x_array,k_array,delta_b_vector,"delta_b_spline");
+  v_cdm_spline.create(x_array,k_array,v_cdm_vector,"v_cdm_spline");
+  v_b_spline.create(x_array,k_array,v_b_vector,"v_b_spline");
+  Phi_spline.create(x_array,k_array,Phi_vector,"Phi_spline");
+  Psi_spline.create(x_array,k_array,Psi_vector,"Psi_spline");
 
   Theta_spline = std::vector<Spline2D>(Constants.n_ell_theta);
-  Theta_spline[0].create(x_array, k_array, Theta0_vector, "Theta0_spline");
-  Theta_spline[1].create(x_array, k_array, Theta1_vector, "Theta1_spline");
-  Theta_spline[2].create(x_array, k_array, Theta2_vector, "Theta2_spline");
-  Theta_spline[3].create(x_array, k_array, Theta3_vector, "Theta3_spline");
-  Theta_spline[4].create(x_array, k_array, Theta4_vector, "Theta4_spline");
-  Theta_spline[5].create(x_array, k_array, Theta5_vector, "Theta5_spline");
-  Theta_spline[6].create(x_array, k_array, Theta6_vector, "Theta6_spline");
-  Theta_spline[7].create(x_array, k_array, Theta7_vector, "Theta7_spline");
-
-  //std::cout << "Line 314" << std::endl;
-  }
+  Theta_spline[0].create(x_array,k_array,Theta0_vector,"Theta0_spline");
+  Theta_spline[1].create(x_array,k_array,Theta1_vector,"Theta1_spline");
+  Theta_spline[2].create(x_array,k_array,Theta2_vector,"Theta2_spline");
+  Theta_spline[3].create(x_array,k_array,Theta3_vector,"Theta3_spline");
+  Theta_spline[4].create(x_array,k_array,Theta4_vector,"Theta4_spline");
+  Theta_spline[5].create(x_array,k_array,Theta5_vector,"Theta5_spline");
+  Theta_spline[6].create(x_array,k_array,Theta6_vector,"Theta6_spline");
+  Theta_spline[7].create(x_array,k_array,Theta7_vector,"Theta7_spline");
 }
 
 //====================================================
 // Set IC at the start of the run (this is in the
 // tight coupling regime)
 //====================================================
-Vector Perturbations::set_ic(const double x,  const double k) const{
+Vector Perturbations::set_ic(const double x, const double k) const{
 
   // The vector we are going to fill
   Vector y_tc(Constants.n_ell_tot_tc);
@@ -338,7 +353,7 @@ Vector Perturbations::set_ic(const double x,  const double k) const{
   // This is just an example of how to do it to make it easier
   // Feel free to organize the component any way you like
   //=============================================================================
-  
+
   // For integration of perturbations in tight coupling regime (Only 2 photon multipoles + neutrinos needed)
   const int n_ell_theta_tc      = Constants.n_ell_theta_tc;
   const int n_ell_neutrinos_tc  = Constants.n_ell_neutrinos_tc;
@@ -382,13 +397,13 @@ Vector Perturbations::set_ic(const double x,  const double k) const{
 //====================================================
 
 Vector Perturbations::set_ic_after_tight_coupling(
-    const Vector &y_tc,  
-    const double x,  
+    const Vector &y_tc, 
+    const double x, 
     const double k) const{
 
   // Make the vector we are going to fill
   Vector y(Constants.n_ell_tot_full);
-  
+
   //=============================================================================
   // Compute where in the y array each component belongs and where corresponding
   // components are located in the y_tc array
@@ -450,7 +465,7 @@ Vector Perturbations::set_ic_after_tight_coupling(
   double dHp_dx = cosmo->dHpdx_of_x(x);
   double ck_Hp = Constants.c*k/Hp;
 
-  // SET: Scalar quantities (Gravitational potental,  baryons and CDM)
+  // SET: Scalar quantities (Gravitational potental, baryons and CDM)
   delta_cdm = delta_cdm_tc;
   delta_b = delta_b_tc;
   v_cdm = v_cdm_tc;
@@ -473,18 +488,18 @@ Vector Perturbations::set_ic_after_tight_coupling(
 //====================================================
 
 double Perturbations::get_tight_coupling_time(const double k){
-    for (double time_index = 0; time_index < x_array.size(); time_index++){
-      if (abs(rec->dtaudx_of_x(x_array[time_index])) > 10. && abs(rec->dtaudx_of_x(x_array[time_index])) > 10.*Constants.c*k/cosmo->Hp_of_x(x_array[time_index])){}
-      else{
-        if (x_array[time_index] <= -8.3){
-          return x_array[time_index];
-        }
-        else{
-          return -8.3;
-        }
+  for (double time_index = 0; time_index < x_array.size(); time_index++){
+    if (abs(rec->dtaudx_of_x(x_array[time_index])) > 10. && abs(rec->dtaudx_of_x(x_array[time_index])) > 10.*Constants.c*k/cosmo->Hp_of_x(x_array[time_index])){}
+    else{
+      if (x_array[time_index] <= -8.3){
+        return x_array[time_index];
       }
-    } 
-    //=============================================================================
+      else{
+        return -8.3;
+      }
+    }
+  } 
+  //=============================================================================
   // DONE: compute and return x for when tight coupling ends
   // Remember all the three conditions in Callin
   //=============================================================================
@@ -517,7 +532,7 @@ void Perturbations::compute_source_functions(){
       const double k = k_array[ik];
 
       // NB: This is the format the data needs to be stored 
-      // in a 1D array for the 2D spline routine source(ix, ik) -> S_array[ix + nx * ik]
+      // in a 1D array for the 2D spline routine source(ix,ik) -> S_array[ix + nx * ik]
       const int index = ix + n_x * ik;
 
       //=============================================================================
@@ -538,9 +553,9 @@ void Perturbations::compute_source_functions(){
   }
 
   // Spline the source functions
-  ST_spline.create (x_array,  k_array,  ST_array,  "Source_Temp_x_k");
+  ST_spline.create (x_array, k_array, ST_array, "Source_Temp_x_k");
   if(Constants.polarization){
-    SE_spline.create (x_array,  k_array,  SE_array,  "Source_Pol_x_k");
+    SE_spline.create (x_array, k_array, SE_array, "Source_Pol_x_k");
   }
 
   Utils::EndTiming("source");
@@ -552,14 +567,14 @@ void Perturbations::compute_source_functions(){
 //====================================================
 
 // Derivatives in the tight coupling regime
-int Perturbations::rhs_tight_coupling_ode(double x,  double k,  const double *y,  double *dydx){
+int Perturbations::rhs_tight_coupling_ode(double x, double k, const double *y, double *dydx){
 
   //=============================================================================
   // Compute where in the y / dydx array each component belongs
   // This is just an example of how to do it to make it easier
   // Feel free to organize the component any way you like
   //=============================================================================
-  
+
   // For integration of perturbations in tight coupling regime (Only 2 photon multipoles + neutrinos needed)
   const int n_ell_theta_tc      = Constants.n_ell_theta_tc;
   const int n_ell_theta         = Constants.n_ell_theta;
@@ -602,14 +617,14 @@ int Perturbations::rhs_tight_coupling_ode(double x,  double k,  const double *y,
   double R = 4.*OmegaR0/(3.*Omegab0*a);
   double Theta2 = -20./45.*ck_Hp/dtau_dx*Theta1;
   double Psi = -Phi-12.*H0*H0/(Constants.c*Constants.c*k*k*a*a)*OmegaR0*Theta2;
-  
+
 
   dPhidx = Psi-ck_Hp*ck_Hp*Phi/3.+ H0*H0/(2.*Hp*Hp)*(OmegaCDM0/a*delta_cdm+Omegab0/a*delta_b+4.*OmegaR0/(a*a)*Theta0);
   dTheta0dx = -ck_Hp*Theta1-dPhidx;
   double q = (-((1.-R)*dtau_dx+(1.+ R)*ddtau_ddx)*(3.*Theta1+v_b)-ck_Hp*Psi+(1.-dHp_dx/Hp)*ck_Hp*(-Theta0+2.*Theta2)-ck_Hp*dTheta0dx)
-             /((1. + R)*dtau_dx+dHp_dx/Hp-1.);
+    /((1. + R)*dtau_dx+dHp_dx/Hp-1.);
 
-  // SET: Scalar quantities (Phi,  delta,  v,  ...)
+  // SET: Scalar quantities (Phi, delta, v, ...)
   dv_bdx = -v_b-ck_Hp*Psi+R*(1./(1.+R))*(q + v_b + ck_Hp*(-Theta0+2.*Theta2));
   ddelta_cdmdx = ck_Hp*v_cdm-3.*dPhidx;
   dv_cdmdx = -v_cdm-ck_Hp*Psi;
@@ -625,8 +640,8 @@ int Perturbations::rhs_tight_coupling_ode(double x,  double k,  const double *y,
 // The right hand side of the full ODE
 //====================================================
 
-int Perturbations::rhs_full_ode(double x,  double k,  const double *y,  double *dydx){
-  
+int Perturbations::rhs_full_ode(double x, double k, const double *y, double *dydx){
+
   //=============================================================================
   // Compute where in the y / dydx array each component belongs
   // This is just an example of how to do it to make it easier
@@ -690,7 +705,7 @@ int Perturbations::rhs_full_ode(double x,  double k,  const double *y,  double *
   // DONE: fill in the expressions for all the derivatives
   //=============================================================================
 
-  // SET: Scalar quantities (Phi,  delta,  v,  ...)
+  // SET: Scalar quantities (Phi, delta, v, ...)
   dPhidx = Psi-ck_Hp*ck_Hp*Phi/3.+ H0*H0/(2.*Hp*Hp)*(OmegaCDM0/a*delta_cdm+Omegab0/a*delta_b+4.*OmegaR0/(a*a)*Theta0);
   ddelta_cdmdx = ck_Hp*v_cdm-3.*dPhidx;
   dv_cdmdx = -v_cdm-ck_Hp*Psi;
@@ -709,8 +724,8 @@ int Perturbations::rhs_full_ode(double x,  double k,  const double *y,  double *
       delta = 0.;
     }
     dydx[Constants.ind_start_theta+i] = i*ck_Hp/(2.*i+1.)*y[Constants.ind_start_theta+i-1]
-                                      -(i+1.)*ck_Hp/(2.*i+1.)*y[Constants.ind_start_theta+i+1]
-                                      +dtau_dx*(y[Constants.ind_start_theta+i]-1./10.*Theta2*delta);
+      -(i+1.)*ck_Hp/(2.*i+1.)*y[Constants.ind_start_theta+i+1]
+      +dtau_dx*(y[Constants.ind_start_theta+i]-1./10.*Theta2*delta);
   }
 
   dTheta7_dx = ck_Hp*Theta6 - Constants.c*(7.+1.)/(Hp*eta_x)*Theta7 + dtau_dx*Theta7;
@@ -722,35 +737,35 @@ int Perturbations::rhs_full_ode(double x,  double k,  const double *y,  double *
 // Get methods
 //====================================================
 
-double Perturbations::get_delta_cdm(const double x,  const double k) const{
-  return delta_cdm_spline(x, k);
+double Perturbations::get_delta_cdm(const double x, const double k) const{
+  return delta_cdm_spline(x,k);
 }
-double Perturbations::get_delta_b(const double x,  const double k) const{
-  return delta_b_spline(x, k);
+double Perturbations::get_delta_b(const double x, const double k) const{
+  return delta_b_spline(x,k);
 }
-double Perturbations::get_v_cdm(const double x,  const double k) const{
-  return v_cdm_spline(x, k);
+double Perturbations::get_v_cdm(const double x, const double k) const{
+  return v_cdm_spline(x,k);
 }
-double Perturbations::get_v_b(const double x,  const double k) const{
-  return v_b_spline(x, k);
+double Perturbations::get_v_b(const double x, const double k) const{
+  return v_b_spline(x,k);
 }
-double Perturbations::get_Phi(const double x,  const double k) const{
-  return Phi_spline(x, k);
+double Perturbations::get_Phi(const double x, const double k) const{
+  return Phi_spline(x,k);
 }
-double Perturbations::get_Psi(const double x,  const double k) const{
-  return Psi_spline(x, k);
+double Perturbations::get_Psi(const double x, const double k) const{
+  return Psi_spline(x,k);
 }
-double Perturbations::get_Pi(const double x,  const double k) const{
-  return Pi_spline(x, k);
+double Perturbations::get_Pi(const double x, const double k) const{
+  return Pi_spline(x,k);
 }
-double Perturbations::get_Source_T(const double x,  const double k) const{
-  return ST_spline(x, k);
+double Perturbations::get_Source_T(const double x, const double k) const{
+  return ST_spline(x,k);
 }
-double Perturbations::get_Source_E(const double x,  const double k) const{
-  return SE_spline(x, k);
+double Perturbations::get_Source_E(const double x, const double k) const{
+  return SE_spline(x,k);
 }
-double Perturbations::get_Theta(const double x,  const double k,  const int ell) const{
-  return Theta_spline[ell](x, k);
+double Perturbations::get_Theta(const double x, const double k, const int ell) const{
+  return Theta_spline[ell](x,k);
 }
 
 
@@ -814,31 +829,31 @@ void Perturbations::info() const{
 // Output some results to file for a given value of k
 //====================================================
 
-void Perturbations::output(const double k,  const std::string filename) const{
+void Perturbations::output(const double k, const std::string filename) const{
   std::ofstream fp(filename.c_str());
   const int npts = 5000;
-  auto x_array = Utils::linspace(x_start,  x_end,  npts);
+  auto x_array = Utils::linspace(x_start, x_end, npts);
   auto print_data = [&] (const double x) {
     double arg = k * (cosmo->eta_of_x(0.0) - cosmo->eta_of_x(x));
     fp << x                  << " ";
-    fp << get_Theta(x, k, 0)   << " ";
-    fp << get_Theta(x, k, 1)   << " ";
-    fp << get_Theta(x, k, 2)   << " ";
-    fp << get_Phi(x, k)       << " ";
-    fp << get_Psi(x, k)       << " ";
-    fp << get_delta_cdm(x, k) << " ";
-    fp << get_delta_b(x, k)   << " ";
-    fp << get_v_cdm(x, k)     << " ";
-    fp << get_v_b(x, k)       << " ";
+    fp << get_Theta(x,k,0)   << " ";
+    fp << get_Theta(x,k,1)   << " ";
+    fp << get_Theta(x,k,2)   << " ";
+    fp << get_Phi(x,k)       << " ";
+    fp << get_Psi(x,k)       << " ";
+    fp << get_delta_cdm(x,k) << " ";
+    fp << get_delta_b(x,k)   << " ";
+    fp << get_v_cdm(x,k)     << " ";
+    fp << get_v_b(x,k)       << " ";
     fp << cosmo->eta_of_x(x) << " ";
 
-    //fp << get_Pi(x, k)        << " ";
-    //fp << get_Source_T(x, k)  << " ";
-    //fp << get_Source_T(x, k) * Utils::j_ell(5,    arg)           << " ";
-    //fp << get_Source_T(x, k) * Utils::j_ell(50,   arg)           << " ";
-    //fp << get_Source_T(x, k) * Utils::j_ell(500,  arg)           << " ";
+    //fp << get_Pi(x,k)        << " ";
+    //fp << get_Source_T(x,k)  << " ";
+    //fp << get_Source_T(x,k) * Utils::j_ell(5,   arg)           << " ";
+    //fp << get_Source_T(x,k) * Utils::j_ell(50,  arg)           << " ";
+    //fp << get_Source_T(x,k) * Utils::j_ell(500, arg)           << " ";
 
     fp << "\n";
   };
-  std::for_each(x_array.begin(),  x_array.end(),  print_data);
+  std::for_each(x_array.begin(), x_array.end(), print_data);
 }
