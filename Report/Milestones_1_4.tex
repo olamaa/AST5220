@@ -1,0 +1,542 @@
+\documentclass{aa}
+
+\usepackage{graphicx}
+%\usepackage[options]{natbib}
+\usepackage{txfonts}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{float}           % set colors
+
+\hypersetup{ % this is just my personal choice, feel free to change things
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}}
+
+
+
+\begin{document} 
+
+   \title{Temporary title: CMB power spectrum...}
+
+   \author{O. Mårem}
+
+   \institute{Institute of Theoretical Astrophysics,  
+                University of Oslo,  0315 Oslo,  Norway\\
+              \email{olamaa@astro.uio.no}
+             }
+
+   \date{}
+
+  \abstract{An abstract for the paper. Describe the paper. What is the paper about, what are the main results, etc.}
+
+   \keywords{   cosmic microwave background  --
+                large-scale structure of Universe
+               }
+
+   \maketitle
+
+\section{Introduction}
+Write an introduction here. Give context to the paper. Citations to relevant papers. You only need to do this in the end for the last milestone.
+
+\section{Milestone I}
+%Some introduction about what it is all about.
+In this milestone we will look at the expansion history of a homogeneous and isotropic universe governed by the well known Friedmann equation \ref{Friedmann}.
+The universe we consider consists of baryonic matter ($\Omega_b$), cold dark matter ($\Omega_\mathrm{CDM}$), radiation ($\Omega_\gamma$), neutrinos ($\Omega_\nu$)
+and dark energy ($\Omega_\Lambda$), where $\Omega$ is the mass/energy density divided by the critical density ($\rho_c = 3H^2/8\pi G$).\\
+\\
+Since our universe is approximately homogeneous and isotropic on large scales, the solution we calculate will be  
+
+
+
+Since our goal in the end is to study the
+cosmic microwave background (CMB), the homogeneous solution of the universe is of great interest. This is because the CMB is close to
+being homogeneous with perturbations of order $10^{-5}$.
+     
+
+
+\subsection{Theory}
+%The theory behind this milestone.
+The parameters we use for our universe are given below.
+%\vspace*{-1.5cm}
+
+\begin{equation}
+      \boxed{
+   \begin{aligned}
+      h &= 0.67, \\
+      T_{\rm CMB 0} &= 2.7255\,K, \\
+      N_{\rm eff} &= 3.046, \\
+      \Omega_{\rm b 0} &= 0.05, \\
+      \Omega_{\rm CDM 0} &= 0.267,\\
+      \Omega_{k 0} &= 0, \\
+      \Omega_{\nu 0} &= N_{\rm eff}\cdot \frac{7}{8}\left(\frac{4}{11}\right)^{4/3}\Omega_{\gamma 0}, \\
+      \Omega_{\gamma 0} &= 2\cdot \frac{\pi^2}{30} \frac{(k_bT_{\rm CMB 0})^4}{\hbar^3 c^5} \cdot \frac{8\pi G}{3H_0^2},\\
+      \Omega_{\Lambda 0} &= 1 - (\Omega_{k 0}+\Omega_{b 0}+\Omega_{\rm CDM 0}+\Omega_{\gamma 0}+\Omega_{\nu 0}),
+   \end{aligned}}
+\end{equation}
+
+\vspace*{0.3cm}
+\noindent
+where the subscript 0 denotes today's value. $h$ is the dimensionless Hubble constant. More details can be found at \cite{winther:2023}. \\ \\
+
+\noindent
+The Friedmann equation is given by
+\begin{equation}\label{Friedmann}
+      H = H_0 \sqrt{(\Omega_{b0}+\Omega_{\rm CDM 0})a^{-3} + (\Omega_{\gamma 0} + \Omega_{\nu 0}) a^{-4} + \Omega_{k 0} a^{-2} + \Omega_{\Lambda 0}},
+\end{equation}
+where $a$ is the scale factor and  $H = \frac{\dot{a}}{a}$. We will not use cosmic time ($t$) as our time variable.
+Instead, we use $x=\ln a$ as our dimensionless time variable. This implies that $a = e^x$ for conversion. Since $a(t=0)=0$ and $a(t=t_0)=1$
+we get $t=0 \iff x = -\infty$ and $t=t_0 \iff x = 0$. The cosmic time as a function of $x$ be found from the differential equation 
+\begin{equation}\label{cosmic_time_differential_equation}
+      \frac{dt}{dx} = \frac{1}{H},
+\end{equation}
+which can be solved numerically. \\ \\
+\noindent
+We also use a scaled Hubble parameter defined by $\mathcal{H}\equiv aH$
+The evolution of the $\Omega$s can be expressed as a function of $a$ as showed below. 
+\begin{equation}
+      \hspace*{2cm}
+   \begin{aligned}
+      \Omega_{k}(a) &= \frac{\Omega_{k0}}{a^2H(a)^2/H_0^2}\\
+      \Omega_{\rm CDM}(a) &= \frac{\Omega_{\rm CDM 0}}{a^3H(a)^2/H_0^2} \\
+      \Omega_b(a) &= \frac{\Omega_{b 0}}{a^3H(a)^2/H_0^2} \\
+      \Omega_\gamma(a) &= \frac{\Omega_{\gamma 0}}{a^4H(a)^2/H_0^2} \\
+      \Omega_{\nu}(a) &= \frac{\Omega_{\nu 0}}{a^4H(a)^2/H_0^2} \\
+      \Omega_{\Lambda}(a) &= \frac{\Omega_{\Lambda 0}}{H(a)^2/H_0^2}.
+   \end{aligned}
+\end{equation}
+
+
+\subsection{Implementation details}
+Something about the numerical work.
+
+\subsection{Results}
+Show and discuss the results.
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M1_Hx.pdf}
+   \caption{...}\label{fig:M1_Hx}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M1_eta.pdf}
+   \caption{...}\label{fig:M1_eta}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M1_etaHc.pdf}
+   \caption{...}\label{fig:M1_etaHc}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M1_gaussian.pdf}
+   \caption{...}\label{fig:M1_gauss}
+\end{figure}
+
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M1_densities.pdf}
+   \caption{...}\label{fig:M1_densities}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M1_supernova.pdf}
+   \caption{...}\label{fig:M1_supernova}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M1_confidence_area.pdf}
+   \caption{...}\label{fig:M1_ca}
+\end{figure}
+
+
+
+
+
+
+
+\section{Milestone II}
+Some introduction about what it is all about.
+
+\subsection{Theory}
+The theory behind this milestone.
+
+\subsection{Implementation details}
+Something about the numerical work.
+
+\subsection{Results}
+Show and discuss the results.
+
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M2_tautilde.pdf}
+   \caption{...}\label{fig:M2_tautilde}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M2_Xe.pdf}
+   \caption{...}\label{fig:M2_Xe}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M2_gtilde.pdf}
+   \caption{...}\label{fig:M2_gtilde}
+\end{figure}
+
+
+
+
+
+
+
+
+
+%3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+%3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+%3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+% Husk at det ikke er snakk om overdensity
+%husk a snakke om tight coupling 
+%husk a snakke om at vi løser fra radiation domination, men initial betingelsene er fra inflasjon p.g.a. horizon frys...
+%sound hoizon vs. particle horizon
+\section{Milestone III}
+%Some introduction about what it is all about.
+%In this milestone we look at 
+In this milestone we calculate the evolution of the structures in the universe from after inflation until today.  In practice, this is done by 
+solving the perturbed Einstein-Boltzmann equations numerically with initial conditions from inflation. This will give us the time evolution of the different physical quantities we are interested
+in at different Fourier scales, $k$. We will go into more detail in the theory section. A detailed derivation of the relevant equations is given in \cite{winther:2023}. \\
+\\
+Since the observed CMB is a measurement of the photon temperature field today, it is of great interest for us to calculate the photon temperature fluctuations 
+in the universe at all times and Fourier scales. These fluctuations can be evaluated today to reconstruct the CMB power spectrum we observe. 
+
+\subsection{Theory}
+%The theory behind this milestone.
+%Boltzmann equations, spherical harmonics, perturbation theory...
+Some regions in the early universe expanded more rapidly than others during inflation due to quantum fluctuations in the inflaton field, \cite{winther:2023}. These fluctuations
+made the energy density of the universe inhomogeneous, which introduced fluctuations in the famous Friedmann-Lemaître-Robertson-Walker (FLRW) metric. We can find the initial conditions for the metric perturbations, $\Psi$ and $\Phi$, in the Newtonian gauge, and from there find the initial conditions for
+the energy density perturbations of interest. This is done in \cite{winther:2023}.\\
+\noindent
+\\
+The perturbations in the photon temperature field, $\delta T$, today are much smaller than the background temperature, $\overline{T}$. The same is true for the matter field on large scales.
+This suggests that we can apply linear perturbation theory on the distribution functions and expect 
+that the result will be valid today. The perturbed distribution functions, $f_i$, for baryons, photons and CDM take the form \[f_i(t,\vec{x},\vec{p})
+ = \overline{f_i}(t,\vec{p}) + \delta f_i(t,\vec{x},\vec{p}),\] where $\overline{f_i}$ is the background distribution function and $\delta f_i$ is the perturbation. These perturbations will of course perturb the 
+energy momentum tensor in the Einstein equations, which in turn will perturb the metric. This will then change how particles move through space and time, \cite{winther:2023}. We will therefore have a system of coupled differential equations.
+The perturbed Einstein-Boltzmann equations can be solved in Fourier space with $x = \ln a$ as the time variable. The photon temperature perturbations, here defined as the relative perturbation $\Theta = \delta T/\overline{T}$, are expanded in Legendre multipoles,
+such that we are left with multipoles, $\Theta_\ell$ of the photon distribution. Similarly, the CDM and baryon overdensities we solve for are defined as $\delta_\mathrm{CDM} = \frac{\delta \rho_{CDM}}{\overline{\rho}_{CDM}}$ and $\delta_\mathrm{b} = \frac{\delta \rho_{b}}{\overline{\rho}_{b}}$.
+The velocities are defined similarly, such that they are dimensionless. We do not solve the equations for polarization, and neutrino perturbations are not included.\\ 
+\\
+The initial conditions:
+$$
+\boxed{
+\begin{aligned}
+\Psi &= -\frac{2}{3} \\
+\Phi &= -\Psi \\
+\delta_{\rm CDM} &= \delta_b = -\frac{3}{2} \Psi \\
+v_{\rm CDM} &= v_b = -\frac{ck}{2\mathcal{H}} \Psi \\
+&\text{Photons:}\\
+\Theta_0 &= -\frac{1}{2} \Psi \\
+\Theta_1 &= +\frac{ck}{6\mathcal{H}}\Psi \\
+\Theta_2 &= -\frac{20ck}{45\mathcal{H}\tau^\prime} \Theta_1 \\
+\Theta_\ell &= -\frac{\ell}{2\ell+1} \frac{ck}{\mathcal{H}\tau^\prime} \Theta_{\ell-1}\\
+\end{aligned}
+}
+$$
+
+The photon equations:
+$$
+\boxed{
+\begin{aligned}
+\Theta^\prime_0 &= -\frac{ck}{\mathcal{H}} \Theta_1 - \Phi^\prime, \\
+\Theta^\prime_1 &=  \frac{ck}{3\mathcal{H}} \Theta_0 - \frac{2ck}{3\mathcal{H}}\Theta_2 +
+\frac{ck}{3\mathcal{H}}\Psi + \tau^\prime\left[\Theta_1 + \frac{1}{3}v_b\right], \\
+\Theta^\prime_\ell &= \frac{\ell ck}{(2\ell+1)\mathcal{H}}\Theta_{\ell-1} - \frac{(\ell+1)ck}{(2\ell+1)\mathcal{H}}
+\Theta_{\ell+1} + \tau^\prime\left[\Theta_\ell - \frac{1}{10}\Theta_2
+\delta_{\ell,2}\right],\\ 
+& \mathrm{where} \ \ 2 \leq \ell \textless \ell_{\textrm{max}} \\
+\Theta_{\ell}^\prime &= \frac{ck}{\mathcal{H}}
+\Theta_{\ell-1}-c\frac{\ell+1}{\mathcal{H}\eta(x)}\Theta_\ell+\tau^\prime\Theta_\ell,
+\quad\quad \ell = \ell_{\textrm{max}}\\
+\end{aligned}
+}
+$$
+
+Cold dark matter and baryons:
+$$
+\boxed{
+\begin{aligned}
+\delta_{\rm CDM}^\prime &= \frac{ck}{\mathcal{H}} v_{\rm CDM} - 3\Phi^\prime \\
+v_{\rm CDM}^\prime &= -v_{\rm CDM} -\frac{ck}{\mathcal{H}} \Psi \\
+\delta_b^\prime &= \frac{ck}{\mathcal{H}}v_b -3\Phi^\prime \\
+v_b^\prime &= -v_b - \frac{ck}{\mathcal{H}}\Psi + \tau^\prime R(3\Theta_1 + v_b) \\
+\end{aligned}
+}
+$$
+Metric perturbations:
+$$
+\boxed{
+\begin{aligned}
+\Phi^\prime &= \Psi - \frac{c^2k^2}{3\mathcal{H}^2} \Phi\\
+&+ \frac{H_0^2}{2\mathcal{H}^2}
+\left[\Omega_{\rm CDM 0} a^{-1} \delta_{\rm CDM} + \Omega_{b 0} a^{-1} \delta_b + 4\Omega_{\gamma 0}
+a^{-2}\Theta_0\right] \\
+\Psi &= -\Phi - \frac{12H_0^2}{c^2k^2a^2}\left[\Omega_{\gamma 0}\Theta_2\right], \\
+\end{aligned}
+}
+$$
+where $R = \frac{4\Omega_{\gamma 0}}{3\Omega_{b 0} a}$. Some of these equations are numerically unstable early on, where the large value of $\tau^\prime$ is multiplied by the small value of $(3\Theta_1+v_b)$.  
+This regime is known as the tight coupling regime, where the universe was opaque, and it can be related to time when the following three conditions hold simultaneously: $|\tau^\prime|>10$, $|\tau^\prime|>10\cdot \frac{ck}{\mathcal{H}}$ and
+$x\leq -8.3$. The unstable equations are rewritten below.
+
+$$
+\boxed{
+\begin{aligned}
+q &= \frac{-[(1-R)\tau^\prime + (1+R)\tau^{\prime\prime}](3\Theta_1+v_b)}{(1+R)\tau^\prime + \frac{\mathcal{H}^\prime}{\mathcal{H}} -1}\\
+  &\frac{-\frac{ck}{\mathcal{H}}\Psi + (1-\frac{\mathcal{H}^\prime}{\mathcal{H}})\frac{ck}{\mathcal{H}}(-\Theta_0 +
+2\Theta_2) - \frac{ck}{\mathcal{H}}\Theta_0^\prime}{(1+R)\tau^\prime + \frac{\mathcal{H}^\prime}{\mathcal{H}} -1}\\
+v_b^\prime &= \frac{1}{1+R} \left[-v_b - \frac{ck}{\mathcal{H}}\Psi + R(q +
+\frac{ck}{\mathcal{H}}(-\Theta_0 + 2\Theta_2) - \frac{ck}{\mathcal{H}}\Psi)\right]\\
+\Theta^\prime_1 &= \frac{1}{3} (q - v_b^\prime).
+\end{aligned}
+}
+$$
+The $2 \leq l$ photon multipoles in the tight coupling regime are given by the same expressions as in the initial conditions, but these multipoles are very small in this regime,
+so we can simply set them to zero. The $\Theta_2$ multipole is calculated for numerical stability.\\
+\\
+
+ 
+
+
+\subsection{Implementation details}
+We solved the differential equations in two different regimes and "sewed" the solutions together.
+Since the last value in the first regime was used as an initial condition for the second regime, we removed the last value 
+in the first regime, when "sewing" the solutions together, to remove the overlap between the solutions. A for loop was used to loop through all the Fourier scales, $k$, of interest.
+The differential equations were solved using a Runge-Kutta 4 ODE solver. The solution was then splined with a 2D spline, since we have a complete solution in time for each $k$ value.\\ \\
+Solutions of the background universe and the recombination history of the universe was also used.
+
+\subsection{Results}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M3_deltas.pdf}
+   \caption{...}\label{fig:M3_deltas}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M3_Vs.pdf}
+   \caption{...}\label{fig:M3_Vs}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M3_theta0.pdf}
+   \caption{...}\label{fig:M3_theta0}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M3_theta1.pdf}
+   \caption{...}\label{fig:M3_theta1}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M3_phi.pdf}
+   \caption{...}\label{fig:M3_phi}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   \includegraphics[scale=0.5]{Figures/M3_phipsi.pdf}
+   \caption{...}\label{fig:M3_phipsi}
+\end{figure}
+
+
+
+
+
+\subsubsection{Test results}
+The code produces the following results with the cosmological test parameters given in table \ref{tab:test_parameters}. All the figures show plots at three different scales.
+In figures \ref{fig:test1} and \ref{fig:test2} we see the density perturbation and the velocity, respectively, for both CDM and baryons. In figures \ref{fig:test3}
+and \ref{fig:test4} we see the photon temperature monopole, $\Theta_0$, and the photon temperature dipole, $\Theta_1$, respectively. The gravitational potential, $\Phi$, is plotted
+in figure \ref{fig:test5}. All plots seem to agree with the plots shown in \cite{winther:2023}.   
+
+
+\begin{table}[h!] %%h! er for å tvinge tabellen til å være nærmest mulig her i dokumentet
+   %\begin{center}
+     \caption{Cosmological test parameters.} %Tabelltekst
+     \label{tab:test_parameters}
+     \begin{tabular}{l|l}%|r} % for hver kolonne har du {a|b|c} der a er for 1.kolonne, b for 2. kolonne etc, l=venstrestil, r=høyrestilt, c = senterstilt. Se posisjonen til tallene i de forskjellige kolonnene. Har du 4 kolonner der alle er senterstilt blir det f.eks. {c|c|c|c}
+       \textbf{Parameter} & \textbf{Value}\\% & \textbf{Unit}\\ %innhold i hver kolonne, legg til flere her hvis du har flere kolonner
+       %(i) & (m) & (m/s)\\ %enheter for hver kolonne
+       \hline %en horisontall linje for å skille overskriften fra tallene under. Vil du ha en slik linje mellom hver rad i tabellen så legg til en \hline mellom hver rad nedover her. Merk \\ er som vanlig linjeskift mens & skiller kolonner
+       $h$ & 0.7\\
+       $\Omega_\mathrm{b}$ & 0.05\\
+       $\Omega_\mathrm{CDM}$& 0.45\\
+       $\Omega_\mathrm{\Lambda}$ & 0.5\\
+       $\Omega_\mathrm{k}  $     & 0\\
+       $\Omega_\mathrm{\nu}$ & 0\\
+       $T_\mathrm{CMB}$ & 2.7255 $[K]$\\
+       %$Y_\mathrm{p}$ & 0\\
+       \hline
+     \end{tabular}
+   %\end{center}
+ \end{table}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/test_delta_cdm_delta_b.pdf}
+   \caption{The CDM overdensity, in solid lines, and the absolute value of the baryon overdensity,
+    in dotted lines, are plotted at different scales, $k$.}\label{fig:test1}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/test_v_cdm_v_b.pdf}
+   \caption{The CDM velocities, in solid lines, and the absolute value of the baryon velocities,
+    in dotted lines, are plotted at different scales, $k$.}\label{fig:test2}
+\end{figure}
+
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/test_theta_0.pdf}
+   \caption{The photon temperature monopole, $\Theta_0$, at different scales, $k$.}\label{fig:test3}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/test_theta_1.pdf}
+   \caption{The photon temperature dipole, $\Theta_1$, at different scales, $k$.}\label{fig:test4}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/test_phi.pdf}
+   \caption{The gravitational potential, $\Phi$, at different scales, $k$.}\label{fig:test5}
+\end{figure}
+
+\subsubsection{Results}
+%theory section maybe???
+% write about the slope of delta_cdm and compare to analytical result...all plots in general
+In figure \ref{fig:delta_cdm_delta_b_zoom}, which is a zoomed in version of figure \ref{fig:delta_cdm_delta_b}, we see more clearly what is going on. Gravity travels with the same speed as light. This means that the conformal time, $\eta$,
+gives us the maximum reach of gravity at any given time. Therefore, if the scale, $k$, of interest is larger than the conformal time, we should not see any correlation,
+since the scale is causally disconnected. Using that Fourier modes enter the particle horizon when $k\eta=1$, we find
+that the scale $k=10/\mathrm{Mpc}$ enters the particle horizon at $x\sim -15.4$.
+We see that our results are consistent with the theory, as CDM clusters on this scale at $x\sim -16$. The reason why the overdensity oscillates, is because 
+the mass is first compressed by gravity, then the pressure increases such that the mass rebounds. This process is then repeated until the Jeans mass is reached, where the Jeans mass is the mass needed to form structure.
+Since the Jeans mass, in a static universe, depends linearly on the sound speed, we do not expect baryon structure to form in general before recombination, where the sound speed was $\sim c$, \cite{Shen:2022}. However, right after recombination  
+the sound speed freezes out, and structures can more easily form. As recombination happened at $x=-7$, we can see in our results that the baryon overdensity starts to continously increase at this time. This supports the sound speed discussion.
+For CDM we do not have any oscillating behavior at early times since CDM is pressureless and gravity only has to works against the cosmic acceleration.   
+We note that the overdensity at some times is less than -1, which by definition is impossible. This is not a concern, since the quantities have not been scaled to represent physical values. 
+\\ \\
+In figure \ref{fig:v_cdm_v_b} we see that the oscillations in the baryonic overdensity has an expected corresponding oscillation in the baryonic fluid velocity, as the mass is contracting and rebounding repeatedly.
+At a larger scale, seen in green, the mode enters the particle horizon later, and the baryonic overdensity undergoes fewer oscillation. For even larger scales, seen in 
+red and blue, the modes enter the particle horizon after recombination, such that there are no oscillations.
+
+%In figure \ref{fig:delta_gamma} the photon overdensity. 
+%Velocity is negative right after perturbation has rebound
+
+%Show and discuss the results.
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/delta_gamma.pdf}
+   \caption{The comparable photon overdensity, $\delta_\gamma = 4\Theta_0$, at four different scales, $k$. }\label{fig:delta_gamma}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/delta_cdm_delta_b.pdf}
+   \caption{The CDM overdensity and the absolute value of the baryon overdensity plotted at four different scales, $k$. The solid lines are for CDM and the dotted lines are for baryons.}\label{fig:delta_cdm_delta_b}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.65]{../figures/milestone3/delta_cdm_delta_b_zoom.pdf}
+   \caption{A closer look at figure \ref{fig:delta_cdm_delta_b} with linear y-scale and with the correct sign for the baryon overdensity.}\label{fig:delta_cdm_delta_b_zoom}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/v_gamma.pdf}
+   \caption{The photon velocity perturbation, $v_\gamma=-3\Theta_1$, at four different scales, $k$.}\label{fig:v_gamma}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/v_cdm_v_b.pdf}
+   \caption{The CDM velocities, in solid lines, and the absolute value of the baryon velocities,
+   in dotted lines, are plotted at four different scales, $k$.}\label{fig:v_cdm_v_b}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.65]{../figures/milestone3/theta_2.pdf}
+   \caption{The photon temperature quadrupole, $\Theta_2$, at four different scales, $k$.}\label{fig:theta2}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/phi.pdf}
+   \caption{The gravitational potential at four different scales, $k$.}\label{fig:phi}
+\end{figure}
+
+\begin{figure}[h!]
+   %\hspace{-0.48cm}   
+   %\includegraphics[scale=0.6]{../figures/milestone3/phi_psi.pdf}
+   \caption{The sum of the two gravitational potentials, $\Phi$ and $\Psi$, at four different scales, $k$.}\label{fig:phi_psi}
+\end{figure}
+
+
+
+\section{Milestone IV}
+Some introduction about what it is all about.
+
+\subsection{Theory}
+The theory behind this milestone.
+
+\subsection{Implementation details}
+Something about the numerical work.
+
+\subsection{Results}
+Show and discuss the results.
+
+\section{Conclusions}
+
+Write a short summary and conclusion in the end. 
+
+%\begin{acknowledgements}
+%      I thank my mom for financial support!!!
+%\end{acknowledgements}
+
+\bibliographystyle{aa} % style aa.bst
+\bibliography{refs} % your references Yourfile.bib
+%
+
+%\bibliographystyle{plain} % We choose the "plain" reference style
+%\section*{References}
+%\bibliography{refs} % Entries are in the refs.bib file
+
+%\begin{thebibliography}{}
+%      \bibitem[1966]{baker} Baker, N. 1966,
+%      in Stellar Evolution,
+%      ed.\ R. F. Stein,\& A. G. W. Cameron
+%      (Plenum, New York) 333
+%
+%      \bibitem[2023]{winther} Winther, H.A. 2023,
+%      %\href{https://cmb.wintherscoming.no/milestone1.php}
+%\end{thebibliography}
+
+\end{document}
