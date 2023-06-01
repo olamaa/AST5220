@@ -25,7 +25,6 @@ BackgroundCosmology::BackgroundCosmology(
   OmegaR = 2. * M_PI*M_PI/30. * pow(Constants.k_b*TCMB, 4)/(pow(Constants.hbar, 3)*pow(Constants.c, 5)) * 8.*M_PI*Constants.G/(3.*pow(H0, 2));
   OmegaNu = Neff * (7./8.) * pow(4./11., 4./3.) * OmegaR;
   OmegaLambda = 1.-(OmegaK + OmegaB + OmegaCDM + OmegaR + OmegaNu);
-  //std::cout << OmegaLambda << std::endl;
 }
 
 

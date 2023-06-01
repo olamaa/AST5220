@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.8)  12 MAY 2023 16:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.8)  1 JUN 2023 23:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -716,633 +716,639 @@ LaTeX Info: Redefining \nameref on input line 19.
 \openout3 = `Milestones_1_4.out'.
 
 LaTeX Font Info:    Trying to load font information for TS1+txr on input line 3
-9.
+4.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 3
-9.
+4.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsya on input line 3
-9.
+4.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsyb on input line 3
-9.
+4.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txmia on input line 3
-9.
+4.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsyc on input line 3
-9.
+4.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for T1+txss on input line 3
-9.
+4.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/t1txss.fd
 File: t1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 16.41594pt on input line 39.
+(Font)              scaled to size 16.41594pt on input line 34.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <17.28> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 39.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 34.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 16.41594pt on input line 39.
+(Font)              scaled to size 16.41594pt on input line 34.
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 3
-9.
+4.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 39.
+(Font)              scaled to size 8.54997pt on input line 34.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <9> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 39.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 34.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 8.54997pt on input line 39.
+(Font)              scaled to size 8.54997pt on input line 34.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 40.
+(Font)              scaled to size 10.40245pt on input line 83.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 40.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 83.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 10.40245pt on input line 40.
-
-Underfull \hbox (badness 1152) in paragraph at lines 45--50
-\T1/txr/m/n/10 ho-mo-ge-neous and isotropic uni-verse gov-erned by the well
- []
-
-
-Underfull \hbox (badness 2753) in paragraph at lines 45--50
-\T1/txr/m/n/10 known Fried-mann equa-tion [][]2[][]. The uni-verse we con-sider
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--50
-
- []
-
-
-Underfull \hbox (badness 7291) in paragraph at lines 45--50
-\T1/txr/m/n/10 Since our uni-verse is ap-prox-i-mately ho-mo-ge-neous and
- []
-
-LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 59.
-LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
-(Font)              Font shape `T1/txss/m/sl' tried instead on input line 59.
-LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 59.
+(Font)              scaled to size 10.40245pt on input line 83.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 81.
-
-Package natbib Warning: Citation `winther:2023' on page 1 undefined on input li
-ne 81.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
-
- []
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 86.
+LaTeX Font Info:    Font shape `T1/txss/m/n' will be
+(Font)              scaled to size 9.49997pt on input line 94.
+LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 94.
+LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
+(Font)              scaled to size 9.49997pt on input line 94.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--98
-
- []
-
-<Figures/M1_Hx.pdf, id=85, 433.62pt x 289.08pt>
-File: Figures/M1_Hx.pdf Graphic file (type pdf)
-<use Figures/M1_Hx.pdf>
-Package pdftex.def Info: Figures/M1_Hx.pdf  used on input line 119.
-(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <9> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 120.
-
-Package hyperref Warning: Suppressing link with empty target on input line 121.
+Package hyperref Warning: Suppressing link with empty target on input line 115.
 
 
 [1{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-<Figures/M1_eta.pdf, id=110, 433.62pt x 289.08pt>
-File: Figures/M1_eta.pdf Graphic file (type pdf)
-<use Figures/M1_eta.pdf>
-Package pdftex.def Info: Figures/M1_eta.pdf  used on input line 125.
-(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
-<Figures/M1_etaHc.pdf, id=111, 433.62pt x 289.08pt>
-File: Figures/M1_etaHc.pdf Graphic file (type pdf)
-<use Figures/M1_etaHc.pdf>
-Package pdftex.def Info: Figures/M1_etaHc.pdf  used on input line 131.
-(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
-<Figures/M1_gaussian.pdf, id=112, 433.62pt x 289.08pt>
-File: Figures/M1_gaussian.pdf Graphic file (type pdf)
-<use Figures/M1_gaussian.pdf>
-Package pdftex.def Info: Figures/M1_gaussian.pdf  used on input line 137.
-(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
+
+Package hyperref Warning: Suppressing link with empty target on input line 179.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+[2]
+<Figures/milestone_1/test.pdf, id=139, 578.16pt x 433.62pt>
+File: Figures/milestone_1/test.pdf Graphic file (type pdf)
+<use Figures/milestone_1/test.pdf>
+Package pdftex.def Info: Figures/milestone_1/test.pdf  used on input line 184.
+(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
+LaTeX Font Info:    Font shape `T1/txr/b/n' in size <9> not available
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 185.
 
-<Figures/M1_densities.pdf, id=113, 433.62pt x 289.08pt>
-File: Figures/M1_densities.pdf Graphic file (type pdf)
-<use Figures/M1_densities.pdf>
-Package pdftex.def Info: Figures/M1_densities.pdf  used on input line 144.
-(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Figures/M1_supernova.pdf, id=114, 433.62pt x 289.08pt>
-File: Figures/M1_supernova.pdf Graphic file (type pdf)
-<use Figures/M1_supernova.pdf>
-Package pdftex.def Info: Figures/M1_supernova.pdf  used on input line 150.
-(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Figures/M1_confidence_area.pdf, id=115, 433.62pt x 289.08pt>
-File: Figures/M1_confidence_area.pdf Graphic file (type pdf)
-<use Figures/M1_confidence_area.pdf>
-Package pdftex.def Info: Figures/M1_confidence_area.pdf  used on input line 156
-.
-(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Text page 2 contains only floats.
-
-
-Package hyperref Warning: Suppressing link with empty target on input line 175.
-
-
-[2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.175 \subsection
-                 {Results}pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.175 \subsection
-                 {Results}pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.175 \subsection
-                 {Results}pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.175 \subsection
-                 {Results}pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.175 \subsection
-                 {Results}pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.175 \subsection
-                 {Results}pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.175 \subsection
-                 {Results} <./Figures/M1_Hx.pdf> <./Figures/M1_eta.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M1_eta.pdf): PDF i
-nclusion: multiple pdfs with page group included in a single page
-> <./Figures/M1_etaHc.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M1_etaHc.pdf): PDF
- inclusion: multiple pdfs with page group included in a single page
-> <./Figures/M1_gaussian.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M1_gaussian.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
-> <./Figures/M1_densities.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M1_densities.pdf):
- PDF inclusion: multiple pdfs with page group included in a single page
-> <./Figures/M1_supernova.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M1_supernova.pdf):
- PDF inclusion: multiple pdfs with page group included in a single page
-> <./Figures/M1_confidence_area.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M1_confidence_area
-.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<Figures/M2_tautilde.pdf, id=366, 462.52798pt x 346.89601pt>
-File: Figures/M2_tautilde.pdf Graphic file (type pdf)
-<use Figures/M2_tautilde.pdf>
-Package pdftex.def Info: Figures/M2_tautilde.pdf  used on input line 181.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-<Figures/M2_Xe.pdf, id=367, 462.52798pt x 346.89601pt>
-File: Figures/M2_Xe.pdf Graphic file (type pdf)
-<use Figures/M2_Xe.pdf>
-Package pdftex.def Info: Figures/M2_Xe.pdf  used on input line 187.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-<Figures/M2_gtilde.pdf, id=368, 462.52798pt x 346.89601pt>
-File: Figures/M2_gtilde.pdf Graphic file (type pdf)
-<use Figures/M2_gtilde.pdf>
-Package pdftex.def Info: Figures/M2_gtilde.pdf  used on input line 193.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-
-
-Package natbib Warning: Citation `winther:2023' on page 3 undefined on input li
-ne 217.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 215--221
+Underfull \hbox (badness 1009) in paragraph at lines 180--188
+\T1/txr/m/n/10 We present the re-sults fol-low-ing from the im-ple-men-ta-tion,
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
+
+ []
+
+<Figures/milestone_1/Hx.pdf, id=142, 433.62pt x 289.08pt>
+File: Figures/milestone_1/Hx.pdf Graphic file (type pdf)
+<use Figures/milestone_1/Hx.pdf>
+Package pdftex.def Info: Figures/milestone_1/Hx.pdf  used on input line 192.
+(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
+<Figures/milestone_1/t.pdf, id=144, 433.62pt x 289.08pt>
+File: Figures/milestone_1/t.pdf Graphic file (type pdf)
+<use Figures/milestone_1/t.pdf>
+Package pdftex.def Info: Figures/milestone_1/t.pdf  used on input line 199.
+(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
+<Figures/milestone_1/eta_c.pdf, id=146, 433.62pt x 289.08pt>
+File: Figures/milestone_1/eta_c.pdf Graphic file (type pdf)
+<use Figures/milestone_1/eta_c.pdf>
+Package pdftex.def Info: Figures/milestone_1/eta_c.pdf  used on input line 206.
+
+(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
+<Figures/milestone_1/densities.pdf, id=149, 433.62pt x 289.08pt>
+File: Figures/milestone_1/densities.pdf Graphic file (type pdf)
+<use Figures/milestone_1/densities.pdf>
+Package pdftex.def Info: Figures/milestone_1/densities.pdf  used on input line 
+216.
+(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
 
 Package hyperref Warning: Suppressing link with empty target on input line 221.
 
 
-[3pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) 
+[3pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.221 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
-9}) has been already used, duplicate ignored
+2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.221 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.221 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.221 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.221 
+       <./Figures/milestone_1/test.pdf> <./Figures/milestone_1/Hx.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_1/Hx.pdf
+): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Figures/milestone_1/t.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_1/t.pdf)
+: PDF inclusion: multiple pdfs with page group included in a single page
+> <./Figures/milestone_1/eta_c.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_1/eta_c.
+pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Figures/milestone_1/densities.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_1/densit
+ies.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+>]
+<Figures/milestone_1/supernova.pdf, id=350, 433.62pt x 289.08pt>
+File: Figures/milestone_1/supernova.pdf Graphic file (type pdf)
+<use Figures/milestone_1/supernova.pdf>
+Package pdftex.def Info: Figures/milestone_1/supernova.pdf  used on input line 
+226.
+(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
+<Figures/milestone_1/gaussian.pdf, id=356, 433.62pt x 289.08pt>
+File: Figures/milestone_1/gaussian.pdf Graphic file (type pdf)
+<use Figures/milestone_1/gaussian.pdf>
+Package pdftex.def Info: Figures/milestone_1/gaussian.pdf  used on input line 2
+34.
+(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
+<Figures/milestone_1/confidence_area.pdf, id=360, 433.62pt x 289.08pt>
+File: Figures/milestone_1/confidence_area.pdf Graphic file (type pdf)
+<use Figures/milestone_1/confidence_area.pdf>
+Package pdftex.def Info: Figures/milestone_1/confidence_area.pdf  used on input
+ line 243.
+(pdftex.def)             Requested size: 216.80946pt x 144.53964pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 3343) has occurred while \output is active []
+
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 327.
+
+
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.327 \end{equation}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.327 \end{equation}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.327 \end{equation}
+                     <./Figures/milestone_1/supernova.pdf> <./Figures/milestone
+_1/gaussian.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_1/gaussi
+an.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+
+> <./Figures/milestone_1/confidence_area.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_1/confid
+ence_area.pdf): PDF inclusion: multiple pdfs with page group included in a sing
+le page
+>]
+
+Package hyperref Warning: Suppressing link with empty target on input line 391.
+
+
+[5]
+<Figures/milestone_2/tautilde.pdf, id=492, 462.52798pt x 346.89601pt>
+File: Figures/milestone_2/tautilde.pdf Graphic file (type pdf)
+<use Figures/milestone_2/tautilde.pdf>
+Package pdftex.def Info: Figures/milestone_2/tautilde.pdf  used on input line 3
+94.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+<Figures/milestone_2/Xe.pdf, id=494, 462.52798pt x 346.89601pt>
+File: Figures/milestone_2/Xe.pdf Graphic file (type pdf)
+<use Figures/milestone_2/Xe.pdf>
+Package pdftex.def Info: Figures/milestone_2/Xe.pdf  used on input line 402.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+<Figures/milestone_2/gtilde.pdf, id=498, 462.52798pt x 346.89601pt>
+File: Figures/milestone_2/gtilde.pdf Graphic file (type pdf)
+<use Figures/milestone_2/gtilde.pdf>
+Package pdftex.def Info: Figures/milestone_2/gtilde.pdf  used on input line 412
+.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 1442) in paragraph at lines 482--483
+\T1/txr/m/n/10 such as acous-tic os-cil-la-tions, grav-i-ta-tional ef-fects, an
+d the
+ []
+
+
+Underfull \hbox (badness 1342) in paragraph at lines 488--492
+\T1/txr/m/n/10 per-tur-ba-tions of in-ter-est. [][]Winther [][] ([][]2023[][]) 
+pro-vides fur-ther
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--492
+
+ []
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 494.
+
+
+[6pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.494 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.221 
-       <./Figures/M2_tautilde.pdf> <./Figures/M2_Xe.pdf
+l.494 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.494 
+       <./Figures/milestone_2/tautilde.pdf> <./Figures/milestone_2/Xe.pdf
 
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M2_Xe.pdf): PDF in
-clusion: multiple pdfs with page group included in a single page
-> <./Figures/M2_gtilde.pdf
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_2/Xe.pdf
+): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Figures/milestone_2/gtilde.pdf
 
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M2_gtilde.pdf): PD
-F inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_2/gtilde
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 
-Package natbib Warning: Citation `winther:2023' on page 4 undefined on input li
-ne 225.
+LaTeX Warning: Command \textless invalid in math mode on input line 529.
 
 
-Package natbib Warning: Citation `winther:2023' on page 4 undefined on input li
-ne 227.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 3049) in paragraph at lines 225--232
-\T1/txr/m/n/10 the fa-mous Friedmann-Lemaître-Robertson-Walker (FLRW)
+Underfull \hbox (badness 1902) in paragraph at lines 568--570
+\T1/txr/m/n/10 In the tight cou-pling regime, the pho-ton mul-ti-poles with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--232
+Underfull \hbox (badness 10000) in paragraph at lines 568--570
+
+ []
+
+<Figures/milestone_3/deltas.pdf, id=598, 462.52798pt x 346.89601pt>
+File: Figures/milestone_3/deltas.pdf Graphic file (type pdf)
+<use Figures/milestone_3/deltas.pdf>
+Package pdftex.def Info: Figures/milestone_3/deltas.pdf  used on input line 582
+.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+
+Underfull \hbox (badness 1303) in paragraph at lines 577--586
+\T1/txr/m/n/10 im-me-di-ately af-ter re-com-bi-na-tion, the sound speed "freeze
+s
+ []
+
+
+Underfull \hbox (badness 1337) in paragraph at lines 577--586
+\T1/txr/m/n/10 re-sults, we can ob-serve that the baryon over-den-sity starts
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 577--586
 
  []
 
 
-Underfull \hbox (badness 1127) in paragraph at lines 225--232
-\T1/txr/m/n/10 The per-tur-ba-tions in the pho-ton tem-per-a-ture field, $\OML/
-txmi/m/it/10 ^^NT$\T1/txr/m/n/10 , to-
- []
+Package hyperref Warning: Suppressing link with empty target on input line 586.
 
 
-Package natbib Warning: Citation `winther:2023' on page 4 undefined on input li
-ne 234.
+[7]
+<Figures/milestone_3/Vs.pdf, id=606, 462.52798pt x 346.89601pt>
+File: Figures/milestone_3/Vs.pdf Graphic file (type pdf)
+<use Figures/milestone_3/Vs.pdf>
+Package pdftex.def Info: Figures/milestone_3/Vs.pdf  used on input line 591.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+
+Underfull \vbox (badness 1616) has occurred while \output is active []
+
+<Figures/milestone_3/theta_2.pdf, id=608, 462.52798pt x 346.89601pt>
+File: Figures/milestone_3/theta_2.pdf Graphic file (type pdf)
+<use Figures/milestone_3/theta_2.pdf>
+Package pdftex.def Info: Figures/milestone_3/theta_2.pdf  used on input line 60
+0.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+<Figures/milestone_3/phi.pdf, id=609, 462.52798pt x 346.89601pt>
+File: Figures/milestone_3/phi.pdf Graphic file (type pdf)
+<use Figures/milestone_3/phi.pdf>
+Package pdftex.def Info: Figures/milestone_3/phi.pdf  used on input line 607.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--240
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- []
+<Figures/milestone_3/phipsi.pdf, id=610, 462.52798pt x 346.89601pt>
+File: Figures/milestone_3/phipsi.pdf Graphic file (type pdf)
+<use Figures/milestone_3/phipsi.pdf>
+Package pdftex.def Info: Figures/milestone_3/phipsi.pdf  used on input line 613
+.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 271.
+Package hyperref Warning: Suppressing link with empty target on input line 668.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 312.
-
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 312--316
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 312--316
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--326
-
- []
-
-
-Underfull \hbox (badness 1762) in paragraph at lines 321--326
-\T1/txr/m/n/10 Solutions of the back-ground uni-verse and the re-com-bi-na-
- []
-
-<Figures/M3_deltas.pdf, id=467, 462.52798pt x 346.89601pt>
-File: Figures/M3_deltas.pdf Graphic file (type pdf)
-<use Figures/M3_deltas.pdf>
-Package pdftex.def Info: Figures/M3_deltas.pdf  used on input line 331.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-<Figures/M3_Vs.pdf, id=468, 462.52798pt x 346.89601pt>
-File: Figures/M3_Vs.pdf Graphic file (type pdf)
-<use Figures/M3_Vs.pdf>
-Package pdftex.def Info: Figures/M3_Vs.pdf  used on input line 337.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Figures/M3_theta0.pdf, id=469, 462.52798pt x 346.89601pt>
-File: Figures/M3_theta0.pdf Graphic file (type pdf)
-<use Figures/M3_theta0.pdf>
-Package pdftex.def Info: Figures/M3_theta0.pdf  used on input line 343.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Figures/M3_theta1.pdf, id=470, 462.52798pt x 346.89601pt>
-File: Figures/M3_theta1.pdf Graphic file (type pdf)
-<use Figures/M3_theta1.pdf>
-Package pdftex.def Info: Figures/M3_theta1.pdf  used on input line 349.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Figures/M3_phi.pdf, id=471, 462.52798pt x 346.89601pt>
-File: Figures/M3_phi.pdf Graphic file (type pdf)
-<use Figures/M3_phi.pdf>
-Package pdftex.def Info: Figures/M3_phi.pdf  used on input line 355.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Figures/M3_phipsi.pdf, id=472, 462.52798pt x 346.89601pt>
-File: Figures/M3_phipsi.pdf Graphic file (type pdf)
-<use Figures/M3_phipsi.pdf>
-Package pdftex.def Info: Figures/M3_phipsi.pdf  used on input line 361.
-(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package natbib Warning: Citation `winther:2023' on page 5 undefined on input li
-ne 373.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package natbib Warning: Citation `Shen:2022' on page 5 undefined on input line 
-439.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 433--447
-
- []
-
-
-Underfull \hbox (badness 1521) in paragraph at lines 433--447
-\T1/txr/m/n/10 In fig-ure [][]26[][] we see that the os-cil-la-tions in the bar
-y-onic
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package hyperref Warning: Suppressing link with empty target on input line 447.
-
-
-[5pdfTeX warning (ext4): destination with the same identifier (name{figure.11})
+[8pdfTeX warning (ext4): destination with the same identifier (name{figure.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.447 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-12}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.447 
+l.668 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.447 
+l.668 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.447 
-       <./Figures/M3_deltas.pdf> <./Figures/M3_Vs.pdf
+l.668 
+       <./Figures/milestone_3/deltas.pdf> <./Figures/milestone_3/Vs.pdf
 
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M3_Vs.pdf): PDF in
-clusion: multiple pdfs with page group included in a single page
-> <./Figures/M3_theta0.pdf
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_3/Vs.pdf
+): PDF inclusion: multiple pdfs with page group included in a single page
+> <./Figures/milestone_3/theta_2.pdf
 
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M3_theta0.pdf): PD
-F inclusion: multiple pdfs with page group included in a single page
-> <./Figures/M3_theta1.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M3_theta1.pdf): PD
-F inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_3/theta_
+2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 2088) in paragraph at lines 688--690
+\T1/txr/m/n/10 Sachs-Wolfe con-tri-bu-tion. This term in-cludes time-varying
+ []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 688--690
+
+ []
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 510.
+Package hyperref Warning: Suppressing link with empty target on input line 702.
 
 
-[6pdfTeX warning (ext4): destination with the same identifier (name{figure.15})
+[9pdfTeX warning (ext4): destination with the same identifier (name{figure.15})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.16}) has been already used, duplicate ignore
-d
+l.702 \end{equation}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.16}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{table.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.17}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.18}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.19}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.20}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.21}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.22}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.23}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.24}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.25}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details}pdfTeX warning (ext4): destination wit
-h the same identifier (name{figure.26}) has been already used, duplicate ignore
-d
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.510 \subsection
-                 {Implementation details} <./Figures/M3_phi.pdf> <./Figures/M3_
-phipsi.pdf
+l.702 \end{equation}
+                     <./Figures/milestone_3/phi.pdf> <./Figures/milestone_3/phi
+psi.pdf
 
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/M3_phipsi.pdf): PD
-F inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_3/phipsi
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-No file Milestones_1_4.bbl.
+<Figures/milestone_4/source_function.pdf, id=783, 462.52798pt x 346.89601pt>
+File: Figures/milestone_4/source_function.pdf Graphic file (type pdf)
+<use Figures/milestone_4/source_function.pdf>
+Package pdftex.def Info: Figures/milestone_4/source_function.pdf  used on input
+ line 715.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+<Figures/milestone_4/unscaled_transfer_function.pdf, id=787, 462.52798pt x 346.
+89601pt>
+File: Figures/milestone_4/unscaled_transfer_function.pdf Graphic file (type pdf
+)
+<use Figures/milestone_4/unscaled_transfer_function.pdf>
+Package pdftex.def Info: Figures/milestone_4/unscaled_transfer_function.pdf  us
+ed on input line 724.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
 
-Package hyperref Warning: Suppressing link with empty target on input line 542.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Figures/milestone_4/scaled_transfer_function.pdf, id=789, 462.52798pt x 346.89
+601pt>
+File: Figures/milestone_4/scaled_transfer_function.pdf Graphic file (type pdf)
+<use Figures/milestone_4/scaled_transfer_function.pdf>
+Package pdftex.def Info: Figures/milestone_4/scaled_transfer_function.pdf  used
+ on input line 733.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Figures/milestone_4/Pk.pdf, id=790, 462.52798pt x 346.89601pt>
+File: Figures/milestone_4/Pk.pdf Graphic file (type pdf)
+<use Figures/milestone_4/Pk.pdf>
+Package pdftex.def Info: Figures/milestone_4/Pk.pdf  used on input line 745.
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Figures/milestone_4/C_ell.pdf, id=791, 462.52798pt x 346.89601pt>
+File: Figures/milestone_4/C_ell.pdf Graphic file (type pdf)
+<use Figures/milestone_4/C_ell.pdf>
+Package pdftex.def Info: Figures/milestone_4/C_ell.pdf  used on input line 753.
+
+(pdftex.def)             Requested size: 231.26341pt x 173.44757pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.27})
- has been already used, duplicate ignored
+Package hyperref Warning: Suppressing link with empty target on input line 767.
+
+
+[10pdfTeX warning (ext4): destination with the same identifier (name{figure.17}
+) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.542 \end{document}
+l.767 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+18}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.767 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+19}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.767 
+       <./Figures/milestone_4/source_function.pdf> <./Figures/milestone_4/unsca
+led_transfer_function.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_4/unscal
+ed_transfer_function.pdf): PDF inclusion: multiple pdfs with page group include
+d in a single page
+> <./Figures/milestone_4/scaled_transfer_function.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_4/scaled
+_transfer_function.pdf): PDF inclusion: multiple pdfs with page group included 
+in a single page
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 775--780
+[][]\T1/txr/m/n/8 https://cmb.wintherscoming.no/milestone1.php[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 775--780
+[][]\T1/txr/m/n/8 https://cmb.wintherscoming.no/milestone2.php[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 775--780
+[][]\T1/txr/m/n/8 https://cmb.wintherscoming.no/milestone3.php[][]
+ []
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 786.
+
+
+[11pdfTeX warning (ext4): destination with the same identifier (name{figure.20}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.786 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
- (name{figure.28}) has been already used, duplicate ignored
+ (name{figure.21}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.542 \end{document}
-                    pdfTeX warning (ext4): destination with the same identifier
- (name{figure.29}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.542 \end{document}
-                    
+l.786 \end{document}
+                     <./Figures/milestone_4/Pk.pdf> <./Figures/milestone_4/C_el
+l.pdf
 
-] (./Milestones_1_4.aux) ) 
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/milestone_4/C_ell.
+pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] (./Milestones_1_4.aux
+
+Package natbib Warning: Citation `1' multiply defined.
+
+
+Package natbib Warning: Citation `5' multiply defined.
+
+
+Package natbib Warning: Citation `2' multiply defined.
+
+
+Package natbib Warning: Citation `3' multiply defined.
+
+
+Package natbib Warning: Citation `4' multiply defined.
+
+
+Package natbib Warning: Citation `6' multiply defined.
+
+)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 13565 strings out of 478994
- 190882 string characters out of 5858185
- 539400 words of memory out of 5000000
- 30691 multiletter control sequences out of 15000+600000
- 490638 words of font info for 171 fonts, out of 8000000 for 9000
+ 13669 strings out of 478994
+ 193557 string characters out of 5858185
+ 545390 words of memory out of 5000000
+ 30749 multiletter control sequences out of 15000+600000
+ 497274 words of font info for 177 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,12n,102p,335b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/b
-ase/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/rtcxr
-.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb><
-/usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/lo
-cal/texlive/2021/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/tex
-live/2021/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2
-021/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/2021/tex
-mf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2021/texmf-dist
-/fonts/type1/public/txfonts/txsyb.pfb></usr/local/texlive/2021/texmf-dist/fonts
-/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
-urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/hel
-vetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb
-8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></
-usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/
-texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/20
-21/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Milestones_1_4.pdf (7 pages, 629821 bytes).
+ 98i,13n,102p,1859b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2021/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/local/texlive
+/2021/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2021/
+texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2021/texmf-d
+ist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2021/texmf-dist/fon
+ts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2021/texmf-dist/fonts/typ
+e1/public/txfonts/txex.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/publ
+ic/txfonts/txsy.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfo
+nts/txsyb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb
+8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+</usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/loca
+l/texlive/2021/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive
+/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texm
+f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texmf-dist/fon
+ts/type1/urw/times/utmri8a.pfb>
+Output written on Milestones_1_4.pdf (11 pages, 790064 bytes).
 PDF statistics:
- 748 PDF objects out of 1000 (max. 8388607)
- 358 compressed objects within 4 object streams
- 63 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1075 PDF objects out of 1200 (max. 8388607)
+ 519 compressed objects within 6 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 250 words of extra memory for PDF output out of 10000 (max. 10000000)
 

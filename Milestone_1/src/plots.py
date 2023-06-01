@@ -29,32 +29,30 @@ PLOTS THAT SHOW THE CODE WORKS PROPERLY
 """
 
 # 1/Hp dHp/dx
-fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
-ax.set_yscale('log')
-ax.plot(x, 1/(Hp_of_x*const.pc*10**6/10**5) * (dHpdx_of_x*const.pc*10**6/10**5))
-ax.set_ylim(0.1, 10)
-ax.set_xlim(-2, 5)
-ax.set_xlabel('x = log(a)')
-ax.set_title(r'$\frac{1}{\mathcal{H}}\frac{d\mathcal{H}(x)}{dx}\frac{100 km/s}{Mpc}$')
+fig, ax = plt.subplots(3, figsize=(8, 6), tight_layout=True)
+ax[0].set_yscale('log')
+ax[0].plot(x, 1/(Hp_of_x*const.pc*10**6/10**5) * (dHpdx_of_x*const.pc*10**6/10**5))
+ax[0].set_ylim(0.1, 10)
+ax[0].set_xlim(-2, 5)
+ax[0].set_title(r'$\frac{1}{\mathcal{H}}\frac{d\mathcal{H}(x)}{dx}\frac{100 km/s}{Mpc}$')
 
 
 # 1/Hp ddHp/ddx
-fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
-ax.set_yscale('log')
-ax.plot(x, 1/(Hp_of_x*const.pc*10**6/10**5) * (ddHpddx_of_x*const.pc*10**6/10**5))
-ax.set_ylim(0.1, 10)
-ax.set_xlim(-12, 0)
-ax.set_xlabel('x = log(a)')
-ax.set_title(r'$\frac{1}{\mathcal{H}}\frac{d^2\mathcal{H}(x)}{dx^2}\frac{100 km/s}{Mpc}$')
+#fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
+ax[1].set_yscale('log')
+ax[1].plot(x, 1/(Hp_of_x*const.pc*10**6/10**5) * (ddHpddx_of_x*const.pc*10**6/10**5))
+ax[1].set_ylim(0.1, 10)
+ax[1].set_xlim(-12, 0)
+ax[1].set_title(r'$\frac{1}{\mathcal{H}}\frac{d^2\mathcal{H}(x)}{dx^2}\frac{100 km/s}{Mpc}$')
 
 
 # etaHp/c
-fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
-ax.set_ylim(0.75, 3)
-ax.set_xlim(-14, 0)
-ax.plot(x, eta_of_x*Hp_of_x/const.c.value)
-ax.set_xlabel('x = log(a)')
-ax.set_title(r'$\frac{\eta(x)\mathcal{H}}{c}$')
+#fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
+ax[2].set_ylim(0.75, 3)
+ax[2].set_xlim(-14, 0)
+ax[2].plot(x, eta_of_x*Hp_of_x/const.c.value)
+ax[2].set_xlabel('x = log(a)')
+ax[2].set_title(r'$\frac{\eta(x)\mathcal{H}}{c}$')
 
 
 """

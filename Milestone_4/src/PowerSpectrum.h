@@ -31,6 +31,31 @@ class PowerSpectrum {
     const int n_k      = 100;
     const double k_min = Constants.k_min;
     const double k_max = Constants.k_max;
+    Vector2D all_k_arrays;
+
+    const int n_k_0      = 100;
+    const double k_min_0 = k_min;
+    const double k_max_0 = 0.01/Constants.Mpc;
+
+    const int n_k_1      = 200;
+    const double k_min_1 = 0.00046/Constants.Mpc;
+    const double k_max_1 = 0.024/Constants.Mpc;
+
+    const int n_k_2      = 200;
+    const double k_min_2 = 0.0023/Constants.Mpc;
+    const double k_max_2 = 0.047/Constants.Mpc;
+
+    const int n_k_3      = 400;
+    const double k_min_3 = 0.007/Constants.Mpc;
+    const double k_max_3 = 0.07/Constants.Mpc;
+
+    const int n_k_4      = 400;
+    const double k_min_4 = 0.023/Constants.Mpc;
+    const double k_max_4 = 0.1/Constants.Mpc;
+
+    const int n_k_5      = 400;
+    const double k_min_5 = 0.058/Constants.Mpc;
+    const double k_max_5 = 0.23/Constants.Mpc;
     
     // The ells's we will compute Theta_ell and Cell for
     Vector ells{ 
@@ -69,6 +94,7 @@ class PowerSpectrum {
     
     // Splines of the reusult of the LOS integration
     // Theta_ell(k) and ThetaE_ell(k) for polarization
+    Vector2D thetaT_ell_of_k;
     std::vector<Spline> thetaT_ell_of_k_spline;
     std::vector<Spline> thetaE_ell_of_k_spline;
     
@@ -79,10 +105,7 @@ class PowerSpectrum {
     // General method to solve for Cells (allowing for cross-correlations)
     // For auto spectrum (C_TT) then call with f_ell = g_ell = theta_ell
     // For polarization C_TE call with f_ell = theta_ell and g_ell = thetaE_ell
-    Vector solve_for_cell(
-        Vector & logk_array,
-        std::vector<Spline> & f_ell, 
-        std::vector<Spline> & g_ell);
+    Vector solve_for_cell(std::vector<Spline> & f_ell);
 
     // Splines with the power-spectra
     Spline cell_TT_spline{"cell_TT_spline"};
@@ -103,6 +126,7 @@ class PowerSpectrum {
     
     // Do all the solving: bessel functions, LOS integration and then compute Cells
     void solve();
+    double get_j_ell(const double z, const int ell) const;
 
     // The dimensionless primordial power-spectrum Delta = 2pi^2/k^3 P(k)
     double primordial_power_spectrum(const double k) const;
@@ -117,6 +141,9 @@ class PowerSpectrum {
 
     // Output Cells in units of l(l+1)/2pi (muK)^2
     void output(std::string filename) const;
+    void output_matter(std::string filename) const;
+    void output_thetak(std::string filename) const;
+    void output_Source(std::string filename) const;
 };
 
 #endif

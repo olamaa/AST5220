@@ -45,15 +45,6 @@ void RecombinationHistory::solve_number_density_electrons(){
   bool saha_regime = true;
 
 
-
-
-
-  // CHECK THIS PLEASE!! 
-
-
-
-
-
   for(int i = 0; i < npts_rec_arrays; i++){
 
     //==============================================================

@@ -17,7 +17,6 @@ g_tilde_of_x          = file[:,6]
 dgdx_tilde_of_x       = file[:,7]
 ddgddx_tilde_of_x     = file[:,8]
 
-
 fig, ax = plt.subplots()
 ax.plot(x, tau_of_x, label=r"$\tau$(x)")
 ax.plot(x, -dtaudx_of_x, label=r"$\tau^{\prime}$(x)")

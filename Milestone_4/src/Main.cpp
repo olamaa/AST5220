@@ -57,7 +57,7 @@ int main(int argc, char **argv){
   // Solve the recombination history
   RecombinationHistory rec(&cosmo, Yp);
   rec.solve();
-  rec.info();
+  //rec.info();
 
   // Output recombination quantities
   rec.output("recombination.txt");
@@ -75,19 +75,20 @@ int main(int argc, char **argv){
   //std::cout << "line 75" << std::endl;
   pert.solve();
   //std::cout << "line 77" << std::endl;
-  pert.info();
+  //pert.info();
   //std::cout << "line 79" << std::endl;
   
   // Output perturbation quantities
   double kvalue0 = 0.001 / Constants.Mpc;
   double kvalue1 = 0.01 / Constants.Mpc;
   double kvalue2 = 0.1 / Constants.Mpc;
+  // SHOULD I DO ONE MORE AT k = 1 or 100 maybe?
   pert.output(kvalue0, "perturbations_k_0_001.txt");
   pert.output(kvalue1, "perturbations_k_0_01.txt");
   pert.output(kvalue2, "perturbations_k_0_1.txt");
   
   // Remove when module is completed
-  return 0;
+  //return 0;
   
   //=========================================================================
   // Module IV
@@ -96,9 +97,11 @@ int main(int argc, char **argv){
   PowerSpectrum power(&cosmo, &rec, &pert, A_s, n_s, kpivot_mpc);
   power.solve();
   power.output("cells.txt");
+  power.output_matter("matter_power_spectrum_result.txt");
   
   // Remove when module is completed
-  return 0;
+  power.output_thetak("thetak_ells.txt");
+  power.output_Source("Source.txt");
 
   Utils::EndTiming("Everything");
 }

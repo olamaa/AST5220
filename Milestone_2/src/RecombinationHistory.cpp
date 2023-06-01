@@ -1,5 +1,4 @@
 #include"RecombinationHistory.h"
-//#include<iostream>
 
 //====================================================
 // Constructors
@@ -43,16 +42,6 @@ void RecombinationHistory::solve_number_density_electrons(){
 
   // Calculate recombination history
   bool saha_regime = true;
-
-
-
-
-
-  // CHECK THIS PLEASE!! 
-
-
-
-
 
   for(int i = 0; i < npts_rec_arrays; i++){
 
@@ -155,7 +144,6 @@ std::pair<double,double> RecombinationHistory::electron_fraction_from_saha_equat
   // Fetch cosmological parameters
   const double OmegaB0      = cosmo->get_OmegaB(0.0);
   double TCMB               = cosmo->get_TCMB(x);
-  //const double rho_c0 = 3.*pow(cosmo->get_H0(),2.)/(8*M_PI*G);
 
   // Electron fraction and number density
   double Xe;
@@ -172,7 +160,6 @@ std::pair<double,double> RecombinationHistory::electron_fraction_from_saha_equat
   double b = 1./nb * pow(m_e*Tb*k_b/(2.*M_PI*hbar*hbar), 3./2.)*exp(-epsilon_0/(Tb*k_b));
   Xe =  2./(sqrt(1.+4./b) + 1.);
   ne = Xe*nH;
-  //std::cout << Xe << std::endl;
 
   return std::pair<double,double>(Xe, ne);
 }
@@ -207,35 +194,23 @@ int RecombinationHistory::rhs_peebles_ode(double x, const double *Xe, double *dX
   // TODO: Write the expression for dXedx // DONE
   //=============================================================================
 
-
-
-  // CHECK AND DELETE
-
-  //double beta = alpha_2*pow(m_e*TCMB*k_b/(2.*M_PI*hbar*hbar),3./2.)*exp(-epsilon_0/(TCMB*k_b)); //fixed
-  //double beta_2 = alpha_2*pow(m_e*TCMB*k_b/(2.*M_PI*hbar*hbar),3./2.)*exp(-1./4.*epsilon_0/(TCMB*k_b)); //fixed
-  //double n_1s = (1. - X_e)*nb; //fixed
-  //double lambda_a = H * pow(3.*epsilon_0/(hbar*c), 3.)/(pow(8.*M_PI,2.)*n_1s);//fixed
-  //double Cr = (lambda_2s1s + lambda_a)/(lambda_2s1s + lambda_a + beta_2); //fixed
-  //double rhs = Cr/H * (beta*(1.- X_e) - nb*alpha_2*X_e*X_e); //fixed
-
-
   double Tb = TCMB;
-  double phi_2       = 0.448*log(epsilon_0/(TCMB*k_b));                                       // 7
-  double alpha_2     = c*8./sqrt(3.*M_PI)*sigma_T*sqrt(epsilon_0/(TCMB*k_b))*phi_2;       // 1e-15
+  double phi_2       = 0.448*log(epsilon_0/(TCMB*k_b));                                       
+  double alpha_2     = c*8./sqrt(3.*M_PI)*sigma_T*sqrt(epsilon_0/(TCMB*k_b))*phi_2;       
   
   double beta        = alpha_2*pow(m_e*TCMB*k_b/(2.*M_PI*hbar*hbar), 3./2.)*exp(-epsilon_0/(TCMB*k_b));
-  double beta_2      = alpha_2*pow(m_e*TCMB*k_b/(2.*M_PI*hbar*hbar), 3./2.)*exp(-1./4.*epsilon_0/(TCMB*k_b));                                      // 0
+  double beta_2      = alpha_2*pow(m_e*TCMB*k_b/(2.*M_PI*hbar*hbar), 3./2.)*exp(-1./4.*epsilon_0/(TCMB*k_b));                                      
 
-  double nH          = (1. - Yp)*nb;                                                        // 6e-8
+  double nH          = (1. - Yp)*nb;                                                        
 
-  double n_1s        = (1. - X_e)*nH;                                                       // nan
-  double lambda_a    = H * pow(3.*epsilon_0/(hbar*c), 3.)/(pow(8.*M_PI, 2.)*n_1s);                    // nan
+  double n_1s        = (1. - X_e)*nH;                                                       
+  double lambda_a    = H * pow(3.*epsilon_0/(hbar*c), 3.)/(pow(8.*M_PI, 2.)*n_1s);                    
 
 
   //std::cout << X_e << std::endl;
 
   double Cr          = (lambda_2s1s + lambda_a)/(lambda_2s1s + lambda_a + beta_2);
-  double rhs         = Cr/H*(beta*(1.-X_e) - nH*alpha_2*X_e*X_e);                         // X_e = nan
+  double rhs         = Cr/H*(beta*(1.-X_e) - nH*alpha_2*X_e*X_e);                         
   //std::cout <<  << std::endl;
   dXedx[0] = rhs;
 
@@ -408,9 +383,13 @@ void RecombinationHistory::info() const{
   std::cout << "\n";
   std::cout << "Info about recombination/reionization history class:\n";
   std::cout << "Yp:                              " << Yp                                                         << "\n";
-  std::cout << "Xe:                              " << std::setprecision(15) << Xe_of_x(x_decoupling)             << "\n"; // PROBLEM
+  std::cout << "Xe at decoupling:                " << std::setprecision(15) << Xe_of_x(x_decoupling)             << "\n";
   std::cout << "Sound Horizon [Gpc]:             " << get_sound_horizon()/(Constants.Mpc*1e3)                    << "\n";
   std::cout << "Sound Horizon: conformal ratio:  " << get_sound_horizon()/cosmo->eta_of_x(x_decoupling)          << "\n";
+  std::cout << "\n";
+  std::cout << "x_decoupling:                    " << std::setprecision(15) << x_decoupling                      << "\n";
+  std::cout << "tau_decoupling:                  " << std::setprecision(15) << tau_of_x(x_decoupling)            << "\n"; 
+  std::cout << "z_decoupling:                    " << std::setprecision(15) << exp(-x_decoupling)-1              << "\n";
   std::cout << std::endl;
 } 
 
@@ -426,14 +405,14 @@ void RecombinationHistory::output(const std::string filename) const{
   Vector x_array = Utils::linspace(x_min, x_max, npts);
   auto print_data = [&] (const double x) {
     fp                          << x                     << " ";
-    fp << std::setprecision(15) << Xe_of_x(x)            << " "; // nan
-    fp                          << ne_of_x(x)            << " "; // nan
-    fp                          << tau_of_x(x)           << " "; // nan
-    fp                          << dtaudx_of_x(x)        << " "; // nan
-    fp                          << ddtauddx_of_x(x)      << " "; // nan
-    fp                          << g_tilde_of_x(x)       << " "; // nan
-    fp                          << dgdx_tilde_of_x(x)    << " "; // nan
-    fp                          << ddgddx_tilde_of_x(x)  << " "; // nan
+    fp << std::setprecision(15) << Xe_of_x(x)            << " "; 
+    fp                          << ne_of_x(x)            << " "; 
+    fp                          << tau_of_x(x)           << " "; 
+    fp                          << dtaudx_of_x(x)        << " "; 
+    fp                          << ddtauddx_of_x(x)      << " "; 
+    fp                          << g_tilde_of_x(x)       << " "; 
+    fp                          << dgdx_tilde_of_x(x)    << " "; 
+    fp                          << ddgddx_tilde_of_x(x)  << " "; 
     fp                          << "\n";
   };
   std::for_each(x_array.begin(), x_array.end(), print_data);

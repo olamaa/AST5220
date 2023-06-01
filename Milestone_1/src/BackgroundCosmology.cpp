@@ -1,4 +1,4 @@
- #include "BackgroundCosmology.h"
+#include "BackgroundCosmology.h"
 
 //====================================================
 // Constructors
@@ -35,7 +35,7 @@ BackgroundCosmology::BackgroundCosmology(
 
 // Solve the background
 void BackgroundCosmology::solve(){
-  Utils::StartTiming("Eta");
+  //Utils::StartTiming("Eta");
     
   //=============================================================================
   // TODO: Set the range of x and the number of points for the splines // DONE
@@ -71,7 +71,7 @@ void BackgroundCosmology::solve(){
   Vector eta0{0.};
   ODESolver ode;
   ode.solve(detadx, x_array, eta0);
-  auto eta_array = ode.get_data_by_component(0); // try c/(Hp(x=x_start)), else: 0
+  auto eta_array = ode.get_data_by_component(0); 
   eta_of_x_spline.create(x_array,eta_array,"eta_of_x");
 
 
@@ -81,7 +81,7 @@ void BackgroundCosmology::solve(){
   auto t_array = ode.get_data_by_component(0);
   t_of_x_spline.create(x_array,t_array,"t_of_x");
 
-  Utils::EndTiming("Eta");
+  //Utils::EndTiming("Eta");
 }
 
 //====================================================
@@ -199,6 +199,7 @@ double BackgroundCosmology::get_luminosity_distance_of_x(double x) const{
   double r = get_comoving_distance_of_x(x)*sinh(sqrt(OmegaK)*H0*get_comoving_distance_of_x(x)/Constants.c) / (sqrt(OmegaK)*H0*get_comoving_distance_of_x(x)/Constants.c);
   return exp(-x)*r;
   }
+  return 0;
 }
 
 double BackgroundCosmology::get_comoving_distance_of_x(double x) const{
@@ -248,7 +249,7 @@ void BackgroundCosmology::info() const{
   std::cout << "Neff:        " << Neff                             << "    \n";
   std::cout << "h:           " << h                                << "    \n";
   std::cout << "TCMB:        " << TCMB                             << "    \n";
-  std::cout << "time:        " << t_of_x(0)/(1e9*365*24*60*60)  << "Gyr \n";
+  std::cout << "time:        " << t_of_x(0)/(1e9*365*24*60*60)     << "Gyr \n";
   std::cout << std::endl;
 } 
 

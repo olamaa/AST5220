@@ -42,9 +42,7 @@ void Perturbations::integrate_perturbations(){
   for (int i=0;i<k_array_arma.size();i++){
     k_array.push_back(std::pow(10.0,k_array_arma[i]));
   }
-  //std::cout << "Line 45" << std::endl;
 
-  //std::cout << "Looping over k-values from k_min = " << k_array.front() << " k_max = " << k_array.back() << " nk = " << k_array.size() << "\n";
   // Loop over all wavenumbers
   for(int ik = 0; ik < n_k; ik++){
 
@@ -53,15 +51,12 @@ void Perturbations::integrate_perturbations(){
       std::cout << (100*ik+100)/n_k << "% " << std::flush;
       if(ik == n_k-1) std::cout << std::endl;
     }
-    //std::cout << "Progress bar worked" << std::endl;
 
     // Current value of k
     double k = k_array[ik];
 
     // Find value to integrate to
     double x_end_tight = get_tight_coupling_time(k);
-
-    //std::cout << "k and tight coupling time sat" << std::endl;
 
     //===================================================================
     // DONE: Tight coupling integration
@@ -79,81 +74,39 @@ void Perturbations::integrate_perturbations(){
       else{}
     }
 
-    //std::cout << "Line 81" << std::endl;
-    //std::cout << "Tight coupling: \n";
-    //std::cout << " k = " << k * Constants.Mpc << "\n";
-    //std::cout << " x_start = " << x_array[0] << "\n";
-    //std::cout << " x_end_tight = " << x_end_tight << "\n";
-    //std::cout << " tight_index = " << tight_index <<  " x_array.size() = " <<  x_array.size() << "\n";
-
-
     Vector tight_coupling_x_array;
     tight_coupling_x_array.clear();
     for (int i=0;i<tight_index;i++){
       tight_coupling_x_array.push_back(x_array[i]);
     }
-    //std::cout << "Making x_tight_coupling x-array: x_min = " << tight_coupling_x_array.front() << " x_max = " << tight_coupling_x_array.back() << " nx = " << tight_coupling_x_array.size() << "\n";
-
-    //std::cout << "Line 89" << std::endl;
 
     Vector from_and_after_tc_x_array;
     from_and_after_tc_x_array.clear();
-
-    //std::cout << "Line 94" << std::endl;
 
     for (int i=0;i < n_x-tight_index+1;i++){
       // Remove last element to avoid overlapping
       from_and_after_tc_x_array.push_back(x_array[tight_index-1+i]);
     }
-    //std::cout << "Making x-array after tight coupling x_min = " << from_and_after_tc_x_array.front() << " x_max = " << from_and_after_tc_x_array.back() << " nx = " << from_and_after_tc_x_array.size() << "\n";
-
-    //std::cout << "Line 103" << std::endl;
 
     // Set up initial conditions in the tight coupling regime
     auto y_tight_coupling_ini = set_ic(x_start, k);                       
-
-    //std::cout << "Line 108" << std::endl;
 
     // DONE: The tight coupling ODE system
     ODEFunction dydx_tight_coupling = [&](double x, const double *y, double *dydx){
       return rhs_tight_coupling_ode(x, k, y, dydx);
     };
-    //std::cout << "Line 114" << std::endl;
 
     // DONE: Integrate from x_start -> x_end_tight
     ODESolver tight_coupling_ODE;
     std::vector<Vector> tight_coupling_data;
-    //Vector tight_coupling_data;
-
-    //std::cout << "Line 121" << std::endl;
-
-    //std::cout << "Solving tight coupling ODE from x_min = " << tight_coupling_x_array.front() << " x_max = " << tight_coupling_x_array.back() << "\n";
-    //for(auto y : y_tight_coupling_ini)
-      //std::cout << "IC y_tc[.] = " << y << "\n";
     tight_coupling_ODE.solve(dydx_tight_coupling,tight_coupling_x_array,y_tight_coupling_ini);
     tight_coupling_data = tight_coupling_ODE.get_data();
-
-    /*
-       if (tight_coupling_x_array.size() >= 2){
-       tight_coupling_ODE.solve(dydx_tight_coupling,tight_coupling_x_array,y_tight_coupling_ini);
-       tight_coupling_data = tight_coupling_ODE.get_data();
-       }
-       else{
-       tight_coupling_data.push_back(y_tight_coupling_ini);
-       }
-     */
-
-    //std::cout << "Line 131" << std::endl;
 
     // We only use 7 parameters in tight coupling
     Vector y_tight_coupling_end(7);
     for (int i=0;i < 7;i++){
       y_tight_coupling_end[i] = tight_coupling_data.back()[i];
     }
-    //std::cout << "Line 138" << std::endl;
-    //std::cout << "Extracting the final solution after tight coupling:\n";
-    //for(auto y : y_tight_coupling_end)
-      //std::cout << "Final y_tc[.] = " << y << "\n";
 
     //===================================================================
     // DONE: Full equation integration
@@ -165,74 +118,16 @@ void Perturbations::integrate_perturbations(){
     // Set up initial conditions (y_tight_coupling is the solution at the end of tight coupling)
     auto y_full_ini = set_ic_after_tight_coupling(y_tight_coupling_end, x_end_tight, k);
 
-    //std::cout << "Line 150" << std::endl;
-
     // The full ODE system
     ODEFunction dydx_full = [&](double x, const double *y, double *dydx){
       return rhs_full_ode(x, k, y, dydx);
     };
 
-    //std::cout << "Line 157" << std::endl;
-
     ODESolver full_ODE;
     std::vector<Vector> after_tc_data;
-
-    //std::cout << "Line 162" << std::endl;
-
-    //std::cout << "Solving after tight coupling from x_min = " << from_and_after_tc_x_array.front() << " x_max = " << from_and_after_tc_x_array.back() << "\n"; 
-    //for(auto y : y_full_ini)
-      //std::cout << "IC y_full[.] = " << y << "\n";
     full_ODE.solve(dydx_full,from_and_after_tc_x_array,y_full_ini);
     after_tc_data = full_ODE.get_data();
-
-    //for(auto y : after_tc_data.back())
-      //std::cout << "Final y_full[.] = " << y << "\n";
-
-    /*
-       if (from_and_after_tc_x_array.size() >= 2){
-       full_ODE.solve(dydx_full,from_and_after_tc_x_array,y_full_ini);
-       after_tc_data = full_ODE.get_data();
-
-       std::cout << "Line 167" << std::endl;
-
-       }
-       else{
-
-       std::cout << "Line 173" << std::endl;
-
-       if (from_and_after_tc_x_array.size() == 1){
-
-       std::cout << "Line 177" << std::endl;
-    //std::cout << tight_coupling_data.back() << std::endl;
-
-    after_tc_data[0] = tight_coupling_data.back();                                                  // HERE ERROR IS HERE !!!!
-
-    std::cout << "Line 181" << std::endl;
-
-    }
-    else{
-
-    std::cout << "Line 186" << std::endl;
-
-    }
-
-    std::cout << "Line 189" << std::endl;
-
-    }
-     */
-
-    //std::cout << "Line 191" << std::endl;
-
-    //std::cout << "We now need to store the data and then continue the loop and do the next k-value\n";
-    //std::cout << "tight_coupling_data has n = " << tight_coupling_data.size() << " elements\n";
-    //std::cout << " x_min = " << tight_coupling_x_array.front() << " x_max = " << tight_coupling_x_array.back() << "\n"; 
-    //std::cout << "after_tc_data has n = " << after_tc_data.size() << " elements\n";
-    //std::cout << " x_min = " << from_and_after_tc_x_array.front() << " x_max = " << from_and_after_tc_x_array.front() << "\n"; 
-
-    // XXX This I guess is to remove the duplicated point which looks ok XXX
     tight_coupling_data.pop_back();
-
-    //std::cout << "Line 195" << std::endl;
 
     // DONE: Integrate from x_end_tight -> x_end
     for (int i = 0; i < tight_coupling_data.size() + after_tc_data.size(); i++){
@@ -245,7 +140,6 @@ void Perturbations::integrate_perturbations(){
 
         Theta0_vector.push_back(tight_coupling_data[i][5]);
         Theta1_vector.push_back(tight_coupling_data[i][6]);
-        //std::cout<< i << std::endl;
 
         //Higher order thetas are zero during tight coupling (approx)
         Theta2_vector.push_back(0.);
@@ -514,7 +408,7 @@ double Perturbations::get_tight_coupling_time(const double k){
 //====================================================
 void Perturbations::compute_source_functions(){
   Utils::StartTiming("source");
-
+  
   //=============================================================================
   // DONE: Make the x and k arrays to evaluate over and use to make the splines
   //=============================================================================
@@ -539,8 +433,6 @@ void Perturbations::compute_source_functions(){
       // DONE: Compute the source functions
       //=============================================================================
       // Fetch all the things we need...
-      // const double Hp       = cosmo->Hp_of_x(x);
-      // const double tau      = rec->tau_of_x(x);
 
       // Temperatur source
       ST_array[index] = 0.0;
@@ -846,13 +738,6 @@ void Perturbations::output(const double k, const std::string filename) const{
     fp << get_v_cdm(x,k)     << " ";
     fp << get_v_b(x,k)       << " ";
     fp << cosmo->eta_of_x(x) << " ";
-
-    //fp << get_Pi(x,k)        << " ";
-    //fp << get_Source_T(x,k)  << " ";
-    //fp << get_Source_T(x,k) * Utils::j_ell(5,   arg)           << " ";
-    //fp << get_Source_T(x,k) * Utils::j_ell(50,  arg)           << " ";
-    //fp << get_Source_T(x,k) * Utils::j_ell(500, arg)           << " ";
-
     fp << "\n";
   };
   std::for_each(x_array.begin(), x_array.end(), print_data);

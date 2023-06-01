@@ -45,15 +45,6 @@ void RecombinationHistory::solve_number_density_electrons(){
   bool saha_regime = true;
 
 
-
-
-
-  // CHECK THIS PLEASE!! 
-
-
-
-
-
   for(int i = 0; i < npts_rec_arrays; i++){
 
     //==============================================================
@@ -172,8 +163,6 @@ std::pair<double,double> RecombinationHistory::electron_fraction_from_saha_equat
   double b = 1./nb * pow(m_e*Tb*k_b/(2.*M_PI*hbar*hbar), 3./2.)*exp(-epsilon_0/(Tb*k_b));
   Xe =  2./(sqrt(1.+4./b) + 1.);
   ne = Xe*nH;
-  //std::cout << Xe << std::endl;
-
   return std::pair<double,double>(Xe, ne);
 }
 
@@ -206,17 +195,6 @@ int RecombinationHistory::rhs_peebles_ode(double x, const double *Xe, double *dX
   //=============================================================================
   // TODO: Write the expression for dXedx // DONE
   //=============================================================================
-
-
-
-  // CHECK AND DELETE
-
-  //double beta = alpha_2*pow(m_e*TCMB*k_b/(2.*M_PI*hbar*hbar),3./2.)*exp(-epsilon_0/(TCMB*k_b)); //fixed
-  //double beta_2 = alpha_2*pow(m_e*TCMB*k_b/(2.*M_PI*hbar*hbar),3./2.)*exp(-1./4.*epsilon_0/(TCMB*k_b)); //fixed
-  //double n_1s = (1. - X_e)*nb; //fixed
-  //double lambda_a = H * pow(3.*epsilon_0/(hbar*c), 3.)/(pow(8.*M_PI,2.)*n_1s);//fixed
-  //double Cr = (lambda_2s1s + lambda_a)/(lambda_2s1s + lambda_a + beta_2); //fixed
-  //double rhs = Cr/H * (beta*(1.- X_e) - nb*alpha_2*X_e*X_e); //fixed
 
 
   double Tb = TCMB;

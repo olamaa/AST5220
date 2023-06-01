@@ -248,7 +248,8 @@ void BackgroundCosmology::info() const{
   std::cout << "Neff:        " << Neff                             << "    \n";
   std::cout << "h:           " << h                                << "    \n";
   std::cout << "TCMB:        " << TCMB                             << "    \n";
-  std::cout << "time:        " << t_of_x(0)/(1e9*365*24*60*60)  << "Gyr \n";
+  std::cout << "time:        " << t_of_x(0)/(1e9*365*24*60*60)     << "Gyr \n";
+  std::cout << "t_dec        " << t_of_x(-6.98539707941588)/(365*24*60*60) << "yr \n";
   std::cout << std::endl;
 } 
 
